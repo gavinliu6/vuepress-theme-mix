@@ -1,0 +1,42 @@
+{
+  "name": "@vuepress-theme-mix/vuepress-plugin-back-top",
+  "version": "0.1.0",
+  "description": "VuePress theme mix plugin - back top",
+  "keywords": [
+    "vuepress-theme-mix",
+    "vuepress-plugin",
+    "vuepress",
+    "plugin",
+    "back-top"
+  ],
+  "homepage": "https://github.com/gavinliu6/vuepress-theme-mix",
+  "bugs": {
+    "url": "https://github.com/gavinliu6/vuepress-theme-mix/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gavinliu6/vuepress-theme-mix.git"
+  },
+  "license": "MIT",
+  "author": "Gavin Liu <gavinliu0606@gmail.com> (https://gavinliu.me)",
+  "main": "lib/node/index.js",
+  "types": "lib/node/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "clean": "rimraf lib *.tsbuildinfo",
+    "copy": "cpx \"src/**/*.vue\" lib"
+  },
+  "dependencies": {
+    "@vuepress/core": "2.0.0-beta.23",
+    "@vuepress/utils": "2.0.0-beta.23",
+    "ts-debounce": "^3.0.0",
+    "vue": "^3.1.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

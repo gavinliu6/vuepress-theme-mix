@@ -1,0 +1,50 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/vuepress-theme-mix",
+    "packages/@vuepress-theme-mix/*"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "lerna run clean --stream",
+    "copy": "lerna run copy --stream",
+    "copy-watch": "lerna run copy --parallel -- --watch",
+    "dev": "yarn copy-watch & yarn build --watch",
+    "docs:dev": "vuepress dev docs --clean-cache",
+    "docs:build": "vuepress build docs --clean-cache",
+    "docs:release": "yarn copy && yarn build && yarn docs:build",
+    "lint": "eslint --ext .js,.ts,.vue .",
+    "release:minor": "yarn lint && yarn clean && yarn copy && yarn build && lerna publish minor",
+    "release:patch": "yarn lint && yarn clean && yarn copy && yarn build && lerna publish patch",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "eslint --fix",
+    "*.{json,yml,css,scss}": "prettier --write",
+    "package.json": "sort-package-json",
+    "*.{js,css,md}": "prettier --write"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "@vuepress/plugin-docsearch": "^2.0.0-beta.23",
+    "cpx2": "^3.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-vue": "^7.15.0",
+    "husky": "^7.0.1",
+    "lerna": "^4.0.0",
+    "lint-staged": "^11.1.1",
+    "prettier": "2.3.0",
+    "rimraf": "^3.0.2",
+    "sort-package-json": "^1.50.0",
+    "typescript": "^4.3.5",
+    "vuepress": "^2.0.0-beta.23",
+    "vuepress-vite": "2.0.0-beta.23"
+  }
+}
