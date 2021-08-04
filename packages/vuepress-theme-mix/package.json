@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-mix",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A VuePress theme with a mix of features",
   "keywords": [
     "vuepress-theme",
@@ -28,7 +28,7 @@
     "copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib"
   },
   "dependencies": {
-    "@vuepress-theme-mix/vuepress-plugin-back-top": "0.1.0",
+    "@vuepress-theme-mix/vuepress-plugin-back-top": "1.0.0",
     "@vuepress/client": "2.0.0-beta.23",
     "@vuepress/core": "2.0.0-beta.23",
     "@vuepress/plugin-git": "^2.0.0-beta.23",

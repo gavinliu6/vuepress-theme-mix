@@ -1,6 +1,6 @@
 {
   "name": "@vuepress-theme-mix/vuepress-plugin-back-top",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "VuePress theme mix plugin - back top",
   "keywords": [
     "vuepress-theme-mix",
