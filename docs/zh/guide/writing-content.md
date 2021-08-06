@@ -125,6 +125,18 @@ const user = {}
 
 ### 代码块
 
+```ts{1,6-8}
+import type { UserConfig } from '@vuepress/cli'
+
+export const config: UserConfig = {
+  title: 'Hello, VuePress',
+
+  themeConfig: {
+    logo: 'https://vuejs.org/images/logo.png',
+  },
+}
+```
+
 > 参考 VuePress 2 官方文档 [指南 > Markdown > 代码块](https://v2.vuepress.vuejs.org/zh/guide/markdown.html#代码块)
 
 ### Emoji :tada:
