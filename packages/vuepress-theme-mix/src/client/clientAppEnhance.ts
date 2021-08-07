@@ -2,6 +2,7 @@ import { h } from 'vue'
 import { defineClientAppEnhance } from '@vuepress/client'
 import CodeGroup from './components/global/CodeGroup'
 import CodeGroupItem from './components/global/CodeGroupItem.vue'
+import CodePenSnippet from './components/global/CodePenSnippet.vue'
 import OutboundLink from './components/global/OutboundLink.vue'
 import { useScrollPromise } from './composables'
 
@@ -10,6 +11,7 @@ import './styles/index.scss'
 export default defineClientAppEnhance(({ app, router }) => {
   app.component('CodeGroup', CodeGroup)
   app.component('CodeGroupItem', CodeGroupItem)
+  app.component('CodePenSnippet', CodePenSnippet)
 
   // unregister the built-in `<OutboundLink>` to avoid warning
   delete app._context.components.OutboundLink

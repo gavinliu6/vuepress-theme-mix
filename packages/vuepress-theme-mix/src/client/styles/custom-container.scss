@@ -13,10 +13,6 @@
     border-left-width: 0.25rem;
     border-left-style: solid;
     margin: 1em 0;
-
-    p {
-      margin-top: 1rem;
-    }
   }
 
   &.tip {
@@ -66,8 +62,6 @@
 
     figure,
     p {
-      padding-top: 1rem;
-
       &:last-child {
         margin-bottom: 0;
         padding-bottom: 0;
