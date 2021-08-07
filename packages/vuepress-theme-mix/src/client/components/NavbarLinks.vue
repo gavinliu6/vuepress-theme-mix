@@ -58,7 +58,7 @@ export default defineComponent({
   setup() {
     const navbarLinks = computed(() => [
       ...useNavbarLinks().value,
-      ...[useNavbarSelectLanguage().value],
+      ...useNavbarSelectLanguage().value,
     ])
 
     return {

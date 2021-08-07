@@ -4,19 +4,16 @@ import { useRouteLocale, useSiteLocaleData } from '@vuepress/client'
 import { ResolvedNavbarItem } from '../../shared'
 import { useThemeLocaleData } from './useThemeData'
 
-export const useNavbarSelectLanguage = (): ComputedRef<ResolvedNavbarItem> => {
+export const useNavbarSelectLanguage = (): ComputedRef<ResolvedNavbarItem[]> => {
   const router = useRouter()
   const siteLocaleDataRef = useSiteLocaleData()
   const themeLocaleDataRef = useThemeLocaleData()
   const routeLocaleRef = useRouteLocale()
 
-  return computed<ResolvedNavbarItem>(() => {
+  return computed<ResolvedNavbarItem[]>(() => {
     const locales = Object.keys(siteLocaleDataRef.value.locales)
     if (locales.length < 2) {
-      return {
-        text: '',
-        children: [],
-      }
+      return []
     }
 
     const currentPath = router.currentRoute.value.path
@@ -64,6 +61,6 @@ export const useNavbarSelectLanguage = (): ComputedRef<ResolvedNavbarItem> => {
       }),
     }
 
-    return languageDropdown
+    return [languageDropdown]
   })
 }
