@@ -180,5 +180,36 @@ H~2~0
 
 脚注示例[^2]
 
+## 内置组件
+
+本主题自带了一些 Vue 全局组件，你可以在 Markdown 中直接使用它们。
+
+### CodePenSnippet
+
+该组件用于展示并运行 [CodePen](https://codepen.io/) 上的代码片段，下面是一个使用示例：
+
+```md
+<CodePenSnippet title='Sunrise over still lake' slug='yLVeLNg' user='pehaa' />
+```
+
+<CodePenSnippet title='Sunrise over still lake' slug='yLVeLNg' user='pehaa' />
+
+该组件可用属性如下表所示：
+
+| 属性名   | 类型    | 是否必需 | 默认值  |
+| -------- | ------- | -------- | ------- |
+| title    | string  | 是       | N/A     |
+| theme    | string  | 否       | default |
+| height   | number  | 否       | 256     |
+| tab      | string  | 否       | result  |
+| team     | boolean | 否       | false   |
+| user     | string  | 是       | N/A     |
+| slug     | string  | 是       | N/A     |
+| editable | boolean | 否       | true    |
+| preview  | boolean | 否       | true    |
+| version  | string  | 否       | null    |
+
+> 更多详情可参阅：[Embedded Pens](https://blog.codepen.io/documentation/embedded-pens/)
+
 [^1]: 这是一个脚注。
 [^2]: 这是一个脚注。

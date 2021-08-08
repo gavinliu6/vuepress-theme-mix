@@ -179,5 +179,36 @@ Footnote example[^1]
 
 Footnote example[^2]
 
+## Built-in Components
+
+The theme comes with some global Vue components you can use directly in your markdown content.
+
+### CodePenSnippet
+
+This component is used to display and run code snippets on [CodePen](https://codepen.io/), and the following is an example of its use.
+
+```md
+<CodePenSnippet title='Sunrise over still lake' slug='yLVeLNg' user='pehaa' />
+```
+
+<CodePenSnippet title='Sunrise over still lake' slug='yLVeLNg' user='pehaa' />
+
+Available props:
+
+| Props    | Type    | Required | Default |
+| -------- | ------- | -------- | ------- |
+| title    | string  | yes      | N/A     |
+| theme    | string  | no       | default |
+| height   | number  | no       | 256     |
+| tab      | string  | no       | result  |
+| team     | boolean | no       | false   |
+| user     | string  | yes      | N/A     |
+| slug     | string  | yes      | N/A     |
+| editable | boolean | no       | true    |
+| preview  | boolean | no       | true    |
+| version  | string  | no       | null    |
+
+> More details [Embedded Pens](https://blog.codepen.io/documentation/embedded-pens/)
+
 [^1]: This is a footnote.
 [^2]: This is a footnote.

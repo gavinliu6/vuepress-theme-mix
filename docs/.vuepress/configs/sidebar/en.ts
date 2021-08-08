@@ -13,15 +13,6 @@ export const en: SidebarConfig = {
         'navbar',
         'sidebar',
         'writing-content',
-        {
-          type: 'group',
-          text: 'Sample',
-          link: 'sample',
-          children: [
-            'hello',
-            'world',
-          ],
-        },
       ],
     },
   ],
