@@ -81,17 +81,13 @@
 import {
   computed,
   defineComponent,
-  onMounted,
-  Ref,
   ref,
   toRefs,
-  watch,
 } from 'vue'
 import type { PropType } from 'vue'
 import type { ResolvedSidebarItem } from '../../shared'
 import { isLinkHttp, isLinkMailto, isLinkTel } from '@vuepress/shared'
 import SidebarItemLink from './SidebarItemLink.vue'
-import { useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'SidebarItemGroup',
@@ -108,7 +104,6 @@ export default defineComponent({
   },
 
   setup(props) {
-    const route = useRoute()
     const { item } = toRefs(props)
 
     // if the link has http protocol
@@ -145,41 +140,7 @@ export default defineComponent({
       () => item.value.ariaLabel || item.value.text
     )
 
-    const isActiveSidebarItem = (item: Ref<ResolvedSidebarItem>) => {
-      if (item.value.type === 'link') {
-        return item.value.link === route.path
-      }
-      if (item.value.type === 'group') {
-        return item.value.children.some((subItem) =>
-          isActiveSidebarItem(ref(subItem))
-        )
-      }
-      if (item.value.type === 'link-group') {
-        return (
-          item.value.link === route.path ||
-          item.value.children.some((subItem) =>
-            isActiveSidebarItem(ref(subItem))
-          )
-        )
-      }
-      return false
-    }
-
-    const isActive = ref(isActiveSidebarItem(item))
-    const collapsed = ref(!isActive.value)
-    watch(
-      () => route.path,
-      () => {
-        isActive.value = isActiveSidebarItem(item)
-        collapsed.value = !isActive.value
-      }
-    )
-
-    onMounted(() => {
-      if (isActive.value) {
-        collapsed.value = false
-      }
-    })
+    const collapsed = ref(false)
 
     const handleClick = (e) => {
       e.preventDefault()
