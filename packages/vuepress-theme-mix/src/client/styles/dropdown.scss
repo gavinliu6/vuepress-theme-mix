@@ -100,6 +100,7 @@ span.arrow-right::after {
 
     &.router-link-active:not(.external) {
       color: var(--theme-color);
+      background-color: var(--deep-bg-color);
     }
   }
 
