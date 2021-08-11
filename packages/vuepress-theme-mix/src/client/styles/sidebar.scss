@@ -1,11 +1,14 @@
 @import '_variables';
 
-.theme-mix > .toggle-sidebar-button {
-  display: block;
-  position: fixed;
-  bottom: 0.5rem;
-  left: 1rem;
-  z-index: 10;
+// less than 992px
+@media (max-width: $tablet - 0.02px) {
+  .theme-mix > .toggle-sidebar-button {
+    display: block;
+    position: fixed;
+    bottom: 0.5rem;
+    left: 1rem;
+    z-index: 10;
+  }
 }
 
 .sidebar-mask {
