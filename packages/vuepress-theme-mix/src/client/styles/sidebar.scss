@@ -122,6 +122,7 @@
       color: var(--text-secondary-color);
       width: 16px;
       padding-left: 1px;
+      cursor: pointer;
 
       svg {
         transition: all 0.2s ease;
@@ -144,10 +145,6 @@
         }
       }
     }
-  }
-
-  .sidebar-item-group {
-    cursor: pointer;
   }
 
   .sidebar-item:not(.collapsed) {

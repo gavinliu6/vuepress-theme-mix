@@ -4,9 +4,8 @@
       v-if="item.type === 'group'"
       class="sidebar-item-group"
       :aria-label="linkAriaLabel"
-      @click="handleClick"
     >
-      <span class="arrow">
+      <span class="arrow" @click="handleClick">
         <svg
           width="6"
           height="10"
@@ -33,9 +32,8 @@
       :rel="linkRel"
       :aria-label="linkAriaLabel"
       v-bind="$attrs"
-      @click="handleClick"
     >
-      <span class="arrow">
+      <span class="arrow" @click="handleClick">
         <svg
           width="6"
           height="10"
@@ -78,12 +76,7 @@
 </template>
 
 <script lang="ts">
-import {
-  computed,
-  defineComponent,
-  ref,
-  toRefs,
-} from 'vue'
+import { computed, defineComponent, ref, toRefs } from 'vue'
 import type { PropType } from 'vue'
 import type { ResolvedSidebarItem } from '../../shared'
 import { isLinkHttp, isLinkMailto, isLinkTel } from '@vuepress/shared'
