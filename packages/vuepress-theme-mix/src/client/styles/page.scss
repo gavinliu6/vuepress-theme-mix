@@ -12,25 +12,7 @@
     padding-bottom: 0.5rem;
 
     a.header-anchor {
-      font-size: 0.85em;
-      float: left;
-      margin-left: -0.87em;
-      padding-right: 0.23em;
-      margin-top: 0.125em;
-      opacity: 0;
-    }
-
-    &:hover {
-      a.header-anchor {
-        opacity: 1;
-      }
-    }
-
-    // less than 1200px
-    @media (max-width: $desktop - 0.02px) {
-      a.header-anchor {
-        display: none;
-      }
+      display: none;
     }
   }
 
