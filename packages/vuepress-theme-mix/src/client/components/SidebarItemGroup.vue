@@ -48,7 +48,7 @@
           ></path>
         </svg>
       </span>
-      <span class="sidebar-item-group-link-title">
+      <span class="sidebar-item-link-group-title">
         {{ item.text }}
       </span>
     </RouterLink>

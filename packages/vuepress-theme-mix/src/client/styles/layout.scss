@@ -18,7 +18,6 @@
   background-color: var(--bg-color);
 
   .navbar-inner {
-    max-width: $maxWidth;
     margin: 0 auto;
     padding: 0 1.5rem;
 
@@ -43,8 +42,7 @@
     height: 100vh;
     overflow-y: auto;
     width: $sidebarWidth;
-    padding-left: 1.5rem;
-    padding-top: 2.5rem;
+    padding: 2.5rem 1.5rem 0;
   }
 }
 
