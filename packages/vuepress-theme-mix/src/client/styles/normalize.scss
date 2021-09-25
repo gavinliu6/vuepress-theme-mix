@@ -64,26 +64,24 @@ h3,
 h4,
 h5,
 h6 {
-  // font-weight: 600;
   line-height: 1.25;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
+  font-weight: 500;
+  outline: none;
 }
 
 h1 {
-  font-size: 2.25em;
-  font-weight: 700;
+  font-size: 30px;
 }
 
 h2 {
-  font-size: 1.8em;
-  font-weight: 700;
+  font-size: 24px;
   border-bottom: 1px solid var(--border-color);
 }
 
 h3 {
-  font-size: 1.25em;
-  font-weight: 600;
+  font-size: 20px;
 }
 
 p,
