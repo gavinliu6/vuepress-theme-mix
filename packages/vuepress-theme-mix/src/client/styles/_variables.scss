@@ -81,11 +81,10 @@ $landscapePhone: 768px !default;
 $portraitPhone: 576px !default;
 
 // layouts
-$maxWidth: 90rem;
-$navbarHeight: 3.6rem !default;
-$sidebarWidth: 18.5rem !default;
 $maxPageWidth: 90rem !default;
-$maxContentWidth: 960px !default;
+$maxContentWidth: 60rem !default;
+$navbarHeight: 3.6rem !default;
+$sidebarWidth: 18rem !default;
 
 // code
 $codeLang: 'c' 'cpp' 'cs' 'css' 'dart' 'docker' 'fs' 'go' 'html' 'java' 'js'

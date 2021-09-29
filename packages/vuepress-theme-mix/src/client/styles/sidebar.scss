@@ -29,6 +29,8 @@
 }
 
 .sidebar {
+  border-right: 1px solid var(--border-color);
+
   .navbar-links {
     display: none;
     height: auto;
@@ -143,6 +145,8 @@
     .sidebar-item-link-group-title {
       display: inline-block;
       margin-left: 6px;
+      font-size: 15px;
+      font-weight: 600;
     }
 
     a.router-link-active {

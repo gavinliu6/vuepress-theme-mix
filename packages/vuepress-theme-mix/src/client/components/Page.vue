@@ -1,7 +1,7 @@
 <template>
   <main class="page">
-    <div class="theme-mix-content-wrap">
-      <div class="theme-mix-content" :class="{ 'with-toc': shouldShowToc }">
+    <div class="theme-mix-content-wrap" :class="{ 'with-toc': shouldShowToc }">
+      <div class="theme-mix-content">
         <Content />
 
         <PageMeta />
