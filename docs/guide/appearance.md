@@ -107,11 +107,10 @@ $portraitPhone: 576px !default;
 In addition, you can resize some of the page compositions with the following listed variables:
 
 ```scss
-$maxWidth: 90rem;
-$navbarHeight: 3.6rem !default;
-$sidebarWidth: 15rem !default;
 $maxPageWidth: 90rem !default;
-$maxContentWidth: 960px !default;
+$maxContentWidth: 60rem !default;
+$navbarHeight: 3.6rem !default;
+$sidebarWidth: 18rem !default;
 ```
 
 ### Custom Styles

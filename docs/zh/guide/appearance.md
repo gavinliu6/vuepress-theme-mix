@@ -107,11 +107,10 @@ $portraitPhone: 576px !default;
 此外，你还可以通过下面列出的变量调整部分页面组成的尺寸：
 
 ```scss
-$maxWidth: 90rem;
-$navbarHeight: 3.6rem !default;
-$sidebarWidth: 15rem !default;
 $maxPageWidth: 90rem !default;
-$maxContentWidth: 960px !default;
+$maxContentWidth: 60rem !default;
+$navbarHeight: 3.6rem !default;
+$sidebarWidth: 18rem !default;
 ```
 
 ### 自定义样式
