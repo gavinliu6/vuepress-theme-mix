@@ -8,7 +8,7 @@
       <span class="sidebar-item-group-title">
         {{ item.text }}
       </span>
-      <span class="arrow" @click="handleClick">
+      <span v-if="collapsible" class="arrow" @click="handleClick">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="12"
@@ -36,7 +36,7 @@
       <span class="sidebar-item-link-group-title">
         {{ item.text }}
       </span>
-      <span class="arrow" @click="handleClick">
+      <span v-if="collapsible" class="arrow" @click="handleClick">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="12"
@@ -81,6 +81,7 @@ import type { PropType } from 'vue'
 import type { ResolvedSidebarItem } from '../../shared'
 import { isLinkHttp, isLinkMailto, isLinkTel } from '@vuepress/shared'
 import SidebarItemLink from './SidebarItemLink.vue'
+import { useThemeLocaleData } from '../composables'
 
 export default defineComponent({
   name: 'SidebarItemGroup',
@@ -141,11 +142,17 @@ export default defineComponent({
       collapsed.value = !collapsed.value
     }
 
+    const themeLocaleData = useThemeLocaleData()
+    const collapsible = computed(
+      () => item.value?.collapsible ?? themeLocaleData.value?.collapsible === true
+    )
+
     return {
       linkTarget,
       linkRel,
       linkAriaLabel,
       isRouterLink,
+      collapsible,
       collapsed,
       handleClick,
     }

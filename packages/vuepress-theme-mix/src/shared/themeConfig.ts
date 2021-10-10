@@ -101,6 +101,11 @@ export interface MixThemeLocaleData extends LocaleData {
   sidebar?: false | SidebarConfig
 
   /**
+   * Control whether the sidebar can be collapsed or not
+   */
+  collapsible?: boolean
+
+  /**
    * Set to `false` to disable TOC
    */
   toc?: false

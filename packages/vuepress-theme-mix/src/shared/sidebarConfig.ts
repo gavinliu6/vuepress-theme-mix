@@ -6,6 +6,7 @@ export interface SidebarLink extends NavLink {
 
 export interface SidebarItemGroup<T> extends NavLink {
   type: 'group' | 'link-group'
+  collapsible?: boolean
   children: T[]
 }
 
@@ -15,6 +16,4 @@ export type SidebarConfigArray = (string | SidebarLink | SidebarGroup)[]
 export type SidebarCongfigObject = Record<string, SidebarConfigArray>
 export type SidebarConfig = SidebarConfigArray | SidebarCongfigObject
 // resolved
-export type ResolvedSidebarItem =
-  | SidebarLink
-  | SidebarItemGroup<ResolvedSidebarItem>
+export type ResolvedSidebarItem = SidebarLink | SidebarItemGroup<ResolvedSidebarItem>
