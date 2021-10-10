@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.1.6...v1.2.0) (2021-10-10)
+
+### Features
+
+- customize whether the sidebar is collapsible or not ([4fecf79](https://github.com/gavinliu6/vuepress-theme-mix/commit/4fecf799c5fd68af73b72a4833a2dc4d58d5a0dd))
+
+### Styles
+
+- adjust sidebar and page layout ([4bf18dc](https://github.com/gavinliu6/vuepress-theme-mix/commit/4bf18dcf7bbb83ec401bc163d4ff076bed57416d))
+
+### BREAKING CHANGES
+
+- remove SCSS variable `$maxWidth`
+
 ## [1.1.6](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.1.5...v1.1.6) (2021-09-25)
 
 **Note:** Version bump only for package vuepress-theme-mix
