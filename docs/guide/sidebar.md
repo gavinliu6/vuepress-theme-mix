@@ -87,3 +87,34 @@ Each top-level key of an object is an absolute path, and the key value is in the
 :::warning Notes
 Unlike the default theme of VuePress 2, the sidebar does not show the on-page title, the on-page title is displayed in the TOC bar hovering on the right side of the page.
 :::
+
+## Collapsible
+
+For side items whose type is `group` or `link-group`, you can use `collapsible` to specify whether it allows collapsing, the default value is `false`, i.e. collapsing is not supported.
+
+**Example**
+
+```ts
+export default defineUserConfig<MixThemeConfig>({
+  theme: 'vuepress-theme-mix',
+  themeConfig: {
+    sidebar: {
+      // a stand-alone sidebar
+      '/guide/': [
+        'README.md', // relative path is supported
+        'getting-started.md',
+        'appearance.md',
+        'navbar.md',
+        'sidebar.md',
+        {
+          type: 'group',
+          text: 'Writing Content',
+          link: 'writing-content/',
+          children: ['markdown.md', 'typography.md'],
+          collapsible: true, // enable
+        },
+      ],
+    },
+  },
+})
+```

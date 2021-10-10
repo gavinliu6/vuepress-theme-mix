@@ -29,6 +29,7 @@ export default defineUserConfig<MixThemeConfig>({
         text: '编写文档',
         link: '/guide/zh/writing-content/',
         children: ['markdown.md', 'typography.md'], // 子项支持相对路径
+        collapsible: false, // 是否可以折叠（可选）
       },
 
       // 导航链接组
@@ -37,6 +38,7 @@ export default defineUserConfig<MixThemeConfig>({
         text: '编程语言',
         link: '/guide/programming-languages/', // 导航自 /guide/zh/programming-languages/README.md
         children: ['php.md', 'php.md'], // 子项支持相对路径
+        collapsible: true, // 是否可以折叠（可选）
       },
     ],
   },
@@ -87,3 +89,34 @@ export default defineUserConfig<MixThemeConfig>({
 ::: warning 说明
 与 VuePress 2 的默认主题不同，侧边栏不会展示页面内的 Header 标题，页面内标题会展示在悬浮于页面右侧的 TOC 栏中。
 :::
+
+## 是否可折叠
+
+对于 `type` 是 `group` 或 `link-group` 的侧边导航项，你可以使用配置项 `collapsible` 来指定它是否允许折叠，其默认值是 `false`，即不支持折叠。
+
+**示例**
+
+```ts
+export default defineUserConfig<MixThemeConfig>({
+  theme: 'vuepress-theme-mix',
+  themeConfig: {
+    sidebar: {
+      // 一个独立的侧边栏
+      '/zh/guide/': [
+        'README.md', // 支持相对路径
+        'getting-started.md',
+        'appearance.md',
+        'navbar.md',
+        'sidebar.md',
+        {
+          type: 'group',
+          text: '编写文档',
+          link: 'writing-content/',
+          children: ['markdown.md', 'typography.md'],
+          collapsible: true, // 可折叠
+        },
+      ],
+    },
+  },
+})
+```
