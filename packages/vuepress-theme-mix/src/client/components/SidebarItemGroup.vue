@@ -5,23 +5,23 @@
       class="sidebar-item-group"
       :aria-label="linkAriaLabel"
     >
-      <span class="arrow" @click="handleClick">
-        <svg
-          width="6"
-          height="10"
-          viewBox="0 0 6 10"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7"
-            stroke="currentColor"
-            stroke-linecap="square"
-          ></path>
-        </svg>
-      </span>
       <span class="sidebar-item-group-title">
         {{ item.text }}
+      </span>
+      <span class="arrow" @click="handleClick">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M8 4l8 8-8 8" />
+        </svg>
       </span>
     </a>
 
@@ -33,23 +33,23 @@
       :aria-label="linkAriaLabel"
       v-bind="$attrs"
     >
-      <span class="arrow" @click="handleClick">
-        <svg
-          width="6"
-          height="10"
-          viewBox="0 0 6 10"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7"
-            stroke="currentColor"
-            stroke-linecap="square"
-          ></path>
-        </svg>
-      </span>
       <span class="sidebar-item-link-group-title">
         {{ item.text }}
+      </span>
+      <span class="arrow" @click="handleClick">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M8 4l8 8-8 8" />
+        </svg>
       </span>
     </RouterLink>
     <a

@@ -46,16 +46,17 @@
   }
 
   a {
-    display: list-item;
+    display: flex;
+    align-items: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     color: var(--text-secondary-color);
-    overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
+  }
 
-    // less than 992px
-    @media (max-width: $tablet - 0.02px) {
+  // less than 992px
+  @media (max-width: $tablet - 0.02px) {
+    .navbar-links-item a {
       margin-left: 0.5rem !important;
       padding-left: 0.5rem !important;
     }
@@ -78,7 +79,8 @@
   }
 
   .sidebar-item-link-group-title,
-  a.sidebar-item-link {
+  a.sidebar-item-link,
+  a.sidebar-outbound-link {
     &:hover {
       color: var(--theme-color);
     }
@@ -111,23 +113,19 @@
 
   .sidebar-items-sub {
     padding-top: 0;
-
-    // less than 992px
-    @media (max-width: $tablet - 0.02px) {
-      & {
-        padding-left: 1rem;
-      }
-    }
   }
 
   .sidebar-item {
     font-size: 14px;
-    line-height: 1.1;
+    line-height: 1.4;
 
     .arrow {
-      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: var(--text-secondary-color);
       width: 16px;
+      height: 16px;
       text-align: center;
       cursor: pointer;
 
@@ -137,14 +135,23 @@
       }
 
       svg {
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
+    }
+
+    .sidebar-item-text,
+    .sidebar-item-group-title,
+    .sidebar-item-link-group-title {
+      flex: 1;
+      display: inline-block;
+      // margin-left: 6px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     .sidebar-item-group-title,
     .sidebar-item-link-group-title {
-      display: inline-block;
-      margin-left: 6px;
       font-size: 15px;
       font-weight: 600;
     }
@@ -152,13 +159,6 @@
     a.router-link-active {
       color: var(--theme-color);
       font-weight: 600;
-
-      // less than 992px
-      @media (max-width: $tablet - 0.02px) {
-        & {
-          border: none;
-        }
-      }
     }
   }
 
@@ -172,19 +172,12 @@
   }
 
   .sidebar-items-sub .sidebar-item {
-    margin-left: 6px;
-    padding-left: 1.25rem;
+    margin-left: 1px;
+    padding-left: 1rem;
     border-left: 1px solid var(--border-color);
 
     &.active {
       border-color: var(--link-color);
-    }
-
-    // less than 992px
-    @media (max-width: $tablet - 0.02px) {
-      & {
-        padding-left: 0;
-      }
     }
   }
 

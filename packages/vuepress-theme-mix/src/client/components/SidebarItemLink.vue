@@ -7,7 +7,7 @@
       :aria-label="linkAriaLabel"
       v-bind="$attrs"
     >
-      {{ item.text }}
+      <span class="sidebar-item-text">{{ item.text }}</span>
     </RouterLink>
     <a
       v-else
@@ -17,8 +17,10 @@
       :target="linkTarget"
       :aria-label="linkAriaLabel"
     >
-      {{ item.text }}
-      <OutboundLink v-if="isBlankTarget" />
+      <div class="sidebar-item-text">
+        <span>{{ item.text }}</span>
+        <OutboundLink v-if="isBlankTarget" />
+      </div>
     </a>
   </li>
 </template>
