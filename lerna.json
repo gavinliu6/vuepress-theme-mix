@@ -4,7 +4,7 @@
   "useWorkspaces": true,
   "command": {
     "version": {
-      "allowBranch": "main",
+      "allowBranch": "release",
       "conventionalCommits": true,
       "exact": true,
       "ignoreChanges": ["**/*.md"],
