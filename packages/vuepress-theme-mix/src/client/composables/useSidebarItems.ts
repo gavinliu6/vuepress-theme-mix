@@ -48,7 +48,7 @@ export const resolveSidebarItems = (
   const sidebarConfig = frontmatter.sidebar ?? themeLocale.sidebar ?? 'false'
 
   // resolve sidebar items according to the config
-  if (sidebarConfig === false) {
+  if (frontmatter.home || sidebarConfig === false) {
     return []
   }
 
