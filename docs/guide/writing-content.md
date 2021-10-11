@@ -1,4 +1,4 @@
-# Writing content
+# Writing Content
 
 ## Frontmatter
 
