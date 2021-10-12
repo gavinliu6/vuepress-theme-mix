@@ -79,5 +79,12 @@ export default defineUserConfig<MixThemeConfig>({
         },
       },
     ],
+    [
+      '@vuepress/plugin-google-analytics',
+      {
+        // we have multiple deployments, which would use different id
+        id: process.env.GA_ID,
+      },
+    ],
   ],
 })
