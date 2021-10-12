@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.2...v1.2.3) (2021-10-12)
+
+### Bug Fixes
+
+- hide sidebar on home page ([62f39ba](https://github.com/gavinliu6/vuepress-theme-mix/commit/62f39ba872663e109e3b9436eb2e695110d4b1f0))
+
 ## [1.2.2](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.0...v1.2.2) (2021-10-11)
 
 **Note:** Version bump only for package vuepress-theme-mix
