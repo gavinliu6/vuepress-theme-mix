@@ -5,23 +5,21 @@
       class="sidebar-item-group"
       :aria-label="linkAriaLabel"
     >
+      <span class="sidebar-item-group-title">
+        {{ item.text }}
+      </span>
       <span v-if="collapsible" class="arrow" @click="handleClick">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="12"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="1.5"
+          stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
+          style="width: 16px"
         >
-          <path d="M8 4l8 8-8 8" />
+          <path d="M9 18l6-6-6-6"></path>
         </svg>
-      </span>
-      <span class="sidebar-item-group-title">
-        {{ item.text }}
       </span>
     </a>
 
@@ -33,23 +31,21 @@
       :aria-label="linkAriaLabel"
       v-bind="$attrs"
     >
+      <span class="sidebar-item-link-group-title">
+        {{ item.text }}
+      </span>
       <span v-if="collapsible" class="arrow" @click="handleClick">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="12"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="1.5"
+          stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
+          style="width: 16px"
         >
-          <path d="M8 4l8 8-8 8" />
+          <path d="M9 18l6-6-6-6"></path>
         </svg>
-      </span>
-      <span class="sidebar-item-link-group-title">
-        {{ item.text }}
       </span>
     </RouterLink>
     <a

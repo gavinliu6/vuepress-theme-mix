@@ -52,6 +52,7 @@
     padding: 0.5rem 1rem 0.5rem 0;
     color: var(--text-secondary-color);
     white-space: nowrap;
+    border-right: 2px solid transparent;
   }
 
   // less than 992px
@@ -133,6 +134,10 @@
       &:hover {
         background-color: var(--deep-bg-color);
         border-radius: 3px;
+
+        svg {
+          color: var(--theme-color);
+        }
       }
 
       svg {
@@ -145,7 +150,6 @@
     .sidebar-item-link-group-title {
       flex: 1;
       display: inline-block;
-      margin-left: 6px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
