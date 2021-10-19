@@ -30,27 +30,3 @@ export default defineUserConfig<MixThemeConfig>({
   // ……
 })
 ```
-
-## Using Template Repository
-
-If you're planning to start a new project from scratch, using the GitHub template repository is a good option.
-
-You can directly click on [this link](https://github.com/gavinliu6/vuepress-theme-mix-template/generate) to redirect to GitHub and follow its instructions step by step.
-
-As an alternative, you can also clone it locally first to get a quick start.
-
-```sh
-// Clone the template repository to the `mydocs` folder
-git clone https://github.com/gavinliu6/vuepress-theme-mix-template.git mydocs
-
-// Switch working directory
-cd mydocs
-
-// Install dependencies
-yarn
-
-// Start development server
-yarn docs:dev
-```
-
-Next, you will be able to preview the project on `http://127.0.0.1:8080` .

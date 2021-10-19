@@ -19,20 +19,29 @@ features:
 footer: MIT Licensed | Copyright © 2021-present Gavin Liu
 ---
 
-### 🚀 Using Templates
+## 🚀 A Quick Start
+
+First of all, you need to install VuePress Theme Mix in your VuePress 2 project by running:
 
 ```sh:no-line-numbers
-// Clone the template repository to the `mydocs` folder
-git clone https://github.com/gavinliu6/vuepress-theme-mix-template.git mydocs
-
-// Switch working directory
-cd mydocs
-
-// Install dependencies
-yarn
-
-// Start development server
-yarn docs:dev
+yarn add -D vuepress-theme-mix@latest
 ```
 
-Opening [http://127.0.0.1:8080](http://127.0.0.1:8080) in your browser to preview it. :tada:
+And then setting the theme in `docs/.vuepress/config.ts` file:
+
+```ts{9}:no-line-numbers
+// docs/.vuepress/config.ts
+import { defineUserConfig } from 'vuepress'
+import type { MixThemeConfig } from 'vuepress-theme-mix/lib/node'
+
+export default defineUserConfig<MixThemeConfig>({
+  // ……
+
+  // Theme Config
+  theme: 'vuepress-theme-mix',
+
+  // ……
+})
+```
+
+Finally, you are ready to create content as described in the documentation. :beers:

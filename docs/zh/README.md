@@ -19,20 +19,29 @@ features:
 footer: MIT Licensed | Copyright © 2021-present Gavin Liu
 ---
 
-### 🚀 使用模板
+### 🚀 快速上手
+
+首先，你应该在你现有的某一 VuePress 2 项目中安装 Mix 主题：
 
 ```sh:no-line-numbers
-// 克隆模板仓库到本地的 mydocs 文件夹下
-git clone https://github.com/gavinliu6/vuepress-theme-mix-template.git mydocs
-
-// 切换工作目录
-cd mydocs
-
-// 安装依赖
-yarn
-
-// 启动开发服务器
-yarn docs:dev
+yarn add -D vuepress-theme-mix@latest
 ```
 
-在浏览器中打开 [http://127.0.0.1:8080](http://127.0.0.1:8080) 即可预览项目。:tada:
+接着，在 `docs/.vuepress/config.ts` 文件中指定它:
+
+```ts{9}:no-line-numbers
+// docs/.vuepress/config.ts
+import { defineUserConfig } from 'vuepress'
+import type { MixThemeConfig } from 'vuepress-theme-mix/lib/node'
+
+export default defineUserConfig<MixThemeConfig>({
+  // ……
+
+  // 指定使用主题
+  theme: 'vuepress-theme-mix',
+
+  // ……
+})
+```
+
+最后，你就可以按照文档所述进行内容创作了。:beers:
