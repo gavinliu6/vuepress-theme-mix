@@ -48,19 +48,6 @@
     &:hover {
       overflow-y: auto;
     }
-
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: transparent;
-      border-radius: 2px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.25);
-    }
   }
 }
 
