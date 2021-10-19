@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.4...v1.2.5) (2021-10-19)
+
+**Note:** Version bump only for package vuepress-theme-mix
+
 ## [1.2.4](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.3...v1.2.4) (2021-10-15)
 
 ### Bug Fixes
