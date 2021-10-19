@@ -48,42 +48,53 @@ $blockCodeBgDarkColor: #32373e !default;
 $highlightLineBgColor: #464542 !default;
 $highlightLineBgDarkColor: #52555a !default;
 
-$tipBgColor: #f3f5f7 !default;
-$tipBgDarkColor: #373b40 !default;
+$tipBgColor: #e6f7ff !default;
+$tipBgDarkColor: rgba(56, 137, 197, 0.25) !default;
+
 $warningBgColor: #fffaf0 !default;
-$warningBgDarkColor: #8c7346 !default;
-$dangerBgColor: #fccece !default;
-$dangerBgDarkColor: #906e6e !default;
+$warningBgDarkColor: #2b2111 !default;
+
+$dangerBgColor: #fff2f0 !default;
+$dangerBgDarkColor: rgba(208, 58, 82, 0.25) !default;
+
 $referenceBgColor: rgba(0, 0, 0, 0.054) !default;
 $referenceBgDarkColor: rgba(255, 255, 255, 0.054) !default;
 
 // text colors
 $textPrimaryColor: #333 !default;
 $textPrimaryDarkColor: #dcddd8 !default;
+
 $textSecondaryColor: #444 !default;
 $textSecondaryDarkColor: #a2a9af !default;
+
 $textTertiaryColor: #666 !default;
 $textTertiaryDarkColor: #666 !default;
 
 $codeColor: #ed8a63 !default;
 $codeDarkColor: #b17c51 !default;
 
-$tipColor: $textSecondaryColor !default;
-$tipDarkColor: $textSecondaryDarkColor !default;
+$tipColor: #7dc7f5 !default;
+$tipDarkColor: #3b9edd !default;
+
 $warningColor: #e0b76c !default;
 $warningDarkColor: #e0b76c !default;
+
 $dangerColor: #e0706a !default;
-$dangerDarkColor: #e2aeac !default;
+$dangerDarkColor: #db646a !default;
 
 // border colors
 $borderColor: #eaeaea !default;
 $borderDarkColor: #444c56 !default;
-$tipBorderColor: #96ceb4 !default;
-$tipBorderDarkColor: $themeDarkColor !default;
+
+$tipBorderColor: #7acbfd !default;
+$tipBorderDarkColor: rgba(56, 137, 197, 0.35) !default;
+
 $warningBorderColor: #f5a623 !default;
-$warningBorderDarkColor: #ab570a !default;
-$dangerBorderColor: #ff6768 !default;
-$dangerBorderDarkColor: #d13f31 !default;
+$warningBorderDarkColor: #594214 !default;
+
+$dangerBorderColor: #ffccc7 !default;
+$dangerBorderDarkColor: rgba(208, 58, 82, 0.35) !default;
+
 $referenceBorderColor: #8a8383 !default;
 $referenceBorderDarkColor: #8c8888 !default;
 

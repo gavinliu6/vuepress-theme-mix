@@ -10,25 +10,33 @@
   &.danger,
   &.reference {
     padding: 0.01em 1em;
-    border-left-width: 0.25rem;
-    border-left-style: solid;
     margin: 1em 0;
+    border: 1px solid;
   }
 
   &.tip {
-    color: var(--tip-color);
+    .custom-container-title {
+      color: var(--tip-color);
+    }
+
     background-color: var(--tip-bg-color);
     border-color: var(--tip-border-color);
   }
 
   &.warning {
-    color: var(--warning-color);
+    .custom-container-title {
+      color: var(--warning-color);
+    }
+
     background-color: var(--warning-bg-color);
     border-color: var(--warning-border-color);
   }
 
   &.danger {
-    color: var(--danger-color);
+    .custom-container-title {
+      color: var(--danger-color);
+    }
+
     background-color: var(--danger-bg-color);
     border-color: var(--danger-border-color);
   }
