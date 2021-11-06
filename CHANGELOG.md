@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.7](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.6...v1.2.7) (2021-11-06)
+
+### Bug Fixes
+
+- revise z-index ([d4087ce](https://github.com/gavinliu6/vuepress-theme-mix/commit/d4087cef020ed21ea7f0cf7814f1f518bc8d6dac))
+
 ## [1.2.6](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.5...v1.2.6) (2021-11-06)
 
 ### Styles
