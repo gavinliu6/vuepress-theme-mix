@@ -39,7 +39,7 @@ $bgDarkColor: #2f3136 !default;
 $deepBgColor: #f2f2f2 !default;
 $deepBgDarkColor: #464c53 !default;
 
-$inlineCodeBgColor: #1b1f230d !default;
+$inlineCodeBgColor: #f5f7fa !default;
 $inlineCodeBgDarkColor: #32373e !default;
 
 $blockCodeBgColor: #2b2b2b !default;
@@ -70,8 +70,8 @@ $textSecondaryDarkColor: #a2a9af !default;
 $textTertiaryColor: #666 !default;
 $textTertiaryDarkColor: #666 !default;
 
-$codeColor: #ed8a63 !default;
-$codeDarkColor: #b17c51 !default;
+$codeColor: #303133 !default;
+$codeDarkColor: #b7b5b3 !default;
 
 $tipColor: #7dc7f5 !default;
 $tipDarkColor: #3b9edd !default;
