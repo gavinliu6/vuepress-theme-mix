@@ -28,9 +28,12 @@ export interface MixThemePluginConfig {
   }
 
   /**
-   * Enable @vuepress/plugin-prismjs or not
+   * Enable @vuepress/plugin-shiki or not
    */
-  prismjs?: boolean
+  shiki?: false | {
+    theme?: string,
+    langs?: []
+  }
 
   /**
    * Enable @vuepress/plugin-nprogress or not
@@ -201,7 +204,7 @@ export interface MixThemeLocaleData extends LocaleData {
    *
    * Default title of REFERENCE custom block
    */
-   reference?: string
+  reference?: string
 
   /**
    * Config markdown-it plugins

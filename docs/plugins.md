@@ -18,7 +18,7 @@ To enhance the functionality, the theme also has the following built-in plugins,
 
 - [@vuepress/container](https://v2.vuepress.vuejs.org/reference/plugin/container.html) - Registers custom containers and enable all container types by default.
 
-- [@vuepress/prismjs](https://v2.vuepress.vuejs.org/reference/plugin/prismjs.html) - Syntax highlighting, enabled by default, you can disable it by specifying the value of `themePlugins.prismjs` as `false` .
+- [@vuepress/shiki](https://v2.vuepress.vuejs.org/reference/plugin/shiki.html) - Syntax highlighting, enabled by default, you can disable it by specifying the value of `themePlugins.shiki` as `false` .
 
 - [@vuepress/nprogress](https://v2.vuepress.vuejs.org/reference/plugin/nprogress.html) - Show loading progress bar when switching pages, enabled by default, you can disable it by setting the value of `themePlugins.nprogress` to `false` .
 

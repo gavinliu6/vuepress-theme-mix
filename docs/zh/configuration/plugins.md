@@ -41,3 +41,13 @@
 - 默认值：`true`
 
 - 说明：是否启用插件 [@vuepress/git](https://v2.vuepress.vuejs.org/zh/reference/plugin/git.html)，该配置项应与 `themeConfig.lastUpdated` 配置项结合使用。
+
+## themePlugins.shiki
+
+- 类型：`false | { theme: string, langs: [] }`
+
+- 默认值：`{ theme: 'github-dark-dimmed', langs: [] }`
+
+- 说明：配置插件 [@vuepress/shiki](https://v2.vuepress.vuejs.org/zh/reference/plugin/shiki.html)，默认启用该插件，设置为 `false` 可禁用它。
+
+> 查阅官方文档 [shiki](https://v2.vuepress.vuejs.org/zh/reference/plugin/shiki.html) 了解更多详情。

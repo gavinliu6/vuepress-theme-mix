@@ -39,3 +39,13 @@ The configuration items for each type of container are listed in the following t
 - Default: `true`
 
 - Explanation: enable the [@vuepress/git](https://v2.vuepress.vuejs.org/reference/plugin/git.html) plugin or not.
+
+## themePlugins.shiki
+
+- Type: false | { theme: string, langs: [] }
+
+- Default: { theme: 'github-dark-dimmed', langs: [] }
+
+- Explanation: it's used to set the plugin [@vuepress/shiki](https://v2.vuepress.vuejs.org/reference/plugin/shiki.html), you can set `false` to disable it。
+
+> Check out official document [shiki](https://v2.vuepress.vuejs.org/reference/plugin/shiki.html) for details.

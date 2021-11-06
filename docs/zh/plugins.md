@@ -18,7 +18,7 @@ VuePress Theme Mix 使用了下列插件来辅助开发：
 
 - [@vuepress/container](https://v2.vuepress.vuejs.org/zh/reference/plugin/container.html) - 注册自定义容器，默认启用所有容器类型。
 
-- [@vuepress/prismjs](https://v2.vuepress.vuejs.org/zh/reference/plugin/prismjs.html) - 语法高亮，默认启用，你可以指定 `themePlugins.prismjs` 的值为 `false` 来禁用它。
+- [@vuepress/shiki](https://v2.vuepress.vuejs.org/zh/reference/plugin/shiki.html) - 语法高亮，默认启用，你可以指定 `themePlugins.shiki` 的值为 `false` 来禁用它。
 
 - [@vuepress/nprogress](https://v2.vuepress.vuejs.org/zh/reference/plugin/nprogress.html) - 切换页面时显示加载进度条，默认启用，你可以指定 `themePlugins.nprogress` 的值为 `false` 来禁用它。
 

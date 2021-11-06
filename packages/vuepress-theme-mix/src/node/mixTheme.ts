@@ -8,8 +8,9 @@ import {
   resolveContainerPluginOptionsForCodeGroup,
   resolveContainerPluginOptionsForCodeGroupItem,
   resolveContainerPluginOptionsForDetails,
+  resolveGitPluginOptions,
+  resolveShikiPluginOptions,
 } from './utils'
-import { resolveGitPluginOptions } from './utils/resolveGitPluginOptions'
 
 export interface MixThemeConfig extends ThemeConfig, MixThemeData {
   /**
@@ -87,7 +88,7 @@ export const mixTheme: Theme<MixThemeConfig> = (
         '@vuepress/container',
         resolveContainerPluginOptionsForCodeGroupItem(themePlugins),
       ],
-      ['@vuepress/prismjs', themePlugins.prismjs !== false],
+      ['@vuepress/shiki', resolveShikiPluginOptions(themePlugins)],
       ['@vuepress/nprogress', themePlugins.nprogress !== false],
       ['@vuepress/git', resolveGitPluginOptions(themePlugins, localeOptions)],
     ],

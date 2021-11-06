@@ -1,3 +1,5 @@
 export * from './assignDefaultLocaleOptions'
 export * from './resolveMediumZoomPluginOptions'
 export * from './resolveContainerPluginOptions'
+export * from './resolveGitPluginOptions'
+export * from './resolveShikiPluginOptions'

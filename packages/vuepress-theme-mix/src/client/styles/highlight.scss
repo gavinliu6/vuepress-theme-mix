@@ -6,8 +6,7 @@
 // Forked and modified from prismjs/themes/prism-tomorrow.css
 
 code[class*='language-'],
-pre[class*='language-'] {
-  color: #ccc;
+pre.shiki {
   background: none;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
@@ -29,7 +28,7 @@ pre[class*='language-'] {
 }
 
 /* Code blocks */
-pre[class*='language-'] {
+pre.shiki {
   padding: 2.2rem 1rem 1rem;
   margin: 1rem 0;
   vertical-align: middle;
@@ -37,7 +36,6 @@ pre[class*='language-'] {
   overflow: auto;
 
   code {
-    color: #d4d0ab;
     padding: 0;
     background-color: transparent;
     border-radius: 0;
@@ -46,90 +44,11 @@ pre[class*='language-'] {
   }
 }
 
-:not(pre) > code[class*='language-'],
-pre[class*='language-'] {
-  background: #2d2d2d;
-}
-
 /* Inline code */
 :not(pre) > code[class*='language-'] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
-}
-
-.token.comment,
-.token.block-comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #d4d0ab;
-}
-
-.token.punctuation {
-  color: #ccc;
-}
-
-.token.tag,
-.token.attr-name,
-.token.namespace,
-.token.deleted {
-  color: #e2777a;
-}
-
-.token.function-name {
-  color: #6196cc;
-}
-
-.token.boolean,
-.token.number,
-.token.function {
-  color: #f08d49;
-}
-
-.token.property,
-.token.class-name,
-.token.constant,
-.token.symbol {
-  color: #ffcc99;
-}
-
-.token.selector,
-.token.important,
-.token.atrule,
-.token.keyword,
-.token.builtin {
-  color: #ffa07a;
-}
-
-.token.string,
-.token.char,
-.token.attr-value,
-.token.regex,
-.token.variable {
-  color: #abe338;
-}
-
-.token.operator,
-.token.entity,
-.token.url {
-  color: #67cdcc;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-.token.italic {
-  font-style: italic;
-}
-
-.token.entity {
-  cursor: help;
-}
-
-.token.inserted {
-  color: green;
 }
 
 .line-number {
@@ -160,10 +79,10 @@ div[class*='language-'] {
     border-radius: 100%;
     box-shadow: 0 0 0 1px #da3d42, 22px 0 0 0 #fabe3b, 22px 0 0 1px #ecb03e,
       44px 0 0 0 #38cd46, 44px 0 0 1px #2eae32;
+    z-index: 999;
   }
 
-  pre,
-  pre[class*='language-'] {
+  pre {
     // force override the background color to be compatible with shiki
     background: transparent !important;
     position: relative;
@@ -191,8 +110,7 @@ div[class*='language-'] {
   }
 
   &.line-numbers-mode {
-    pre,
-    pre[class*='language-'] {
+    pre {
       margin-left: 2.6rem;
       padding-left: 0;
     }
