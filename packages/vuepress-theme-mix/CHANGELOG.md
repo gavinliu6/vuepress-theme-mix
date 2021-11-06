@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.6](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.5...v1.2.6) (2021-11-06)
+
+### Styles
+
+- change highlight plugin from prismjs to shiki ([e9a1436](https://github.com/gavinliu6/vuepress-theme-mix/commit/e9a1436586d8019c352a5c1ca003a3c5f6cfdde5))
+
+### BREAKING CHANGES
+
+- change highlight plugin from prismjs to shiki
+
 ## [1.2.5](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.4...v1.2.5) (2021-10-19)
 
 **Note:** Version bump only for package vuepress-theme-mix
