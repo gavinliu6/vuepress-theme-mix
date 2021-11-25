@@ -16,7 +16,7 @@
     padding: 0 1.5rem;
 
     // less than 992px
-    @media (max-width: $tablet - 0.02px) {
+    @media (max-width: ($tablet - 0.02px)) {
       & {
         padding: 0 1rem;
       }
@@ -63,7 +63,7 @@
 }
 
 // less than 992px
-@media (max-width: $tablet - 0.02px) {
+@media (max-width: ($tablet - 0.02px)) {
   .sidebar {
     transform: translateX(-100%);
 
@@ -104,7 +104,7 @@
       min-width: 0;
 
       // less than 992px
-      @media (max-width: $tablet - 0.02px) {
+      @media (max-width: ($tablet - 0.02px)) {
         max-width: 100%;
         padding: 0 1rem;
       }

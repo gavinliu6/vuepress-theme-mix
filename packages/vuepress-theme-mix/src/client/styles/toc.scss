@@ -82,7 +82,7 @@
 }
 
 // less than 1200px
-@media (max-width: $desktop - 0.02px) {
+@media (max-width: ($desktop - 0.02px)) {
   .theme-mix-toc {
     margin: 0;
     padding: 0;
@@ -189,7 +189,7 @@
 }
 
 // less than 992px
-@media (max-width: $tablet - 0.02px) {
+@media (max-width: ($tablet - 0.02px)) {
   .mobile-toc-title {
     right: 1rem;
   }

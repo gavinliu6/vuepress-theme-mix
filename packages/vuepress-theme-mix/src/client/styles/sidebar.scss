@@ -1,7 +1,7 @@
 @import '_variables';
 
 // less than 992px
-@media (max-width: $tablet - 0.02px) {
+@media (max-width: ($tablet - 0.02px)) {
   .theme-mix > .toggle-sidebar-button {
     display: block;
     position: fixed;
@@ -22,7 +22,7 @@
 }
 
 // less than 1200px
-@media (max-width: $desktop - 0.02px) {
+@media (max-width: ($desktop - 0.02px)) {
   .sidebar-open .sidebar-mask {
     display: block;
   }
@@ -38,7 +38,7 @@
     padding: 0.75rem 0.75rem 0.75rem 0;
 
     // less than 992px
-    @media (max-width: $tablet - 0.02px) {
+    @media (max-width: ($tablet - 0.02px)) {
       & {
         display: block;
       }
@@ -56,7 +56,7 @@
   }
 
   // less than 992px
-  @media (max-width: $tablet - 0.02px) {
+  @media (max-width: ($tablet - 0.02px)) {
     .navbar-links-item a {
       margin-left: 0.5rem !important;
       padding-left: 0.5rem !important;
@@ -73,7 +73,7 @@
     line-height: 1.5rem;
 
     // less than 992px
-    @media (max-width: $tablet - 0.02px) {
+    @media (max-width: ($tablet - 0.02px)) {
       margin-left: 0.5rem;
       padding-left: 0.5rem;
     }
@@ -105,7 +105,7 @@
     padding-left: 0;
 
     // less than 992px
-    @media (max-width: $tablet - 0.02px) {
+    @media (max-width: ($tablet - 0.02px)) {
       & {
         padding-top: 0.75rem;
       }

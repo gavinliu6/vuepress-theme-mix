@@ -38,7 +38,7 @@
 }
 
 // less than 576px
-@media (max-width: $portraitPhone - 0.02px) {
+@media (max-width: ($portraitPhone - 0.02px)) {
   .code-group__nav {
     margin-left: -1rem;
     margin-right: -1rem;

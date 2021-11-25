@@ -22,7 +22,7 @@
     }
 
     // less than 1200px
-    @media (max-width: $desktop - 0.02px) {
+    @media (max-width: ($desktop - 0.02px)) {
       & {
         margin-left: 1rem;
       }
@@ -47,14 +47,14 @@
     margin-right: 1.5rem;
 
     // less than 1200px
-    @media (max-width: $desktop - 0.02px) {
+    @media (max-width: ($desktop - 0.02px)) {
       & {
         margin-right: 1rem;
       }
     }
 
     // less than 992px
-    @media (max-width: $tablet - 0.02px) {
+    @media (max-width: ($tablet - 0.02px)) {
       & {
         margin-right: 0.5rem;
       }
@@ -102,7 +102,7 @@
   margin: 0 0.75rem;
 
   // less than 1200px
-  @media (max-width: $desktop - 0.02px) {
+  @media (max-width: ($desktop - 0.02px)) {
     & {
       margin: 0 0.5rem;
     }
@@ -168,7 +168,7 @@
 // ------------------------------------ Responsive ------------------------------------
 
 // less than 992px
-@media (max-width: $tablet - 0.02px) {
+@media (max-width: ($tablet - 0.02px)) {
   .can-hide {
     display: none;
   }

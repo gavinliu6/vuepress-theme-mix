@@ -121,7 +121,7 @@
 }
 
 // less than 768px
-@media (max-width: $landscapePhone - 0.02px) {
+@media (max-width: ($landscapePhone - 0.02px)) {
   .home {
     .features {
       flex-direction: column;
@@ -135,7 +135,7 @@
 }
 
 // less than 576px
-@media (max-width: $portraitPhone - 0.02px) {
+@media (max-width: ($portraitPhone - 0.02px)) {
   .home {
     padding-left: 1rem;
     padding-right: 1rem;

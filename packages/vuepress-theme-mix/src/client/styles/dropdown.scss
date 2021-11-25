@@ -8,7 +8,7 @@
 }
 
 // less than 992px
-@media (max-width: $tablet - 0.02px) {
+@media (max-width: ($tablet - 0.02px)) {
   .dropdown-title {
     display: none;
   }
@@ -72,7 +72,7 @@ span.arrow-right::after {
   padding-left: 1.5rem;
 
   // less than 992px
-  @media (max-width: $tablet - 0.02px) {
+  @media (max-width: ($tablet - 0.02px)) {
     & {
       padding-left: 1rem;
     }
