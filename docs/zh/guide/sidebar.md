@@ -92,7 +92,9 @@ export default defineUserConfig<MixThemeConfig>({
 
 ## 是否可折叠
 
-对于 `type` 是 `group` 或 `link-group` 的侧边导航项，你可以使用配置项 `collapsible` 来指定它是否允许折叠，其默认值是 `false`，即不支持折叠。
+对于 `type` 是 `group` 或 `link-group` 的侧边导航项，你可以使用配置项 `collapsible` 来指定它是否允许折叠，其默认值是 `false`，即不支持折叠。另外，你还可以使用 `collapsed` 指定该导航组默认情况下的展开情况，其缺省值是 `false`。
+
+这两个配置都可以在 `themeConfig` 中做全局配置。
 
 **示例**
 
@@ -100,6 +102,10 @@ export default defineUserConfig<MixThemeConfig>({
 export default defineUserConfig<MixThemeConfig>({
   theme: 'vuepress-theme-mix',
   themeConfig: {
+    // 全局配置
+    collapsible: true, // 可折叠
+    collapsed: true, // 该导航组默认情况下是闭合的
+
     sidebar: {
       // 一个独立的侧边栏
       '/zh/guide/': [
@@ -113,7 +119,10 @@ export default defineUserConfig<MixThemeConfig>({
           text: '编写文档',
           link: 'writing-content/',
           children: ['markdown.md', 'typography.md'],
+
+          // 覆盖全局配置
           collapsible: true, // 可折叠
+          collapsed: true, // 该导航组默认情况下是闭合的
         },
       ],
     },

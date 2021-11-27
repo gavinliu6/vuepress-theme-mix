@@ -130,19 +130,23 @@ export default defineComponent({
       () => item.value.ariaLabel || item.value.text
     )
 
-    const collapsed = ref(false)
+    const themeLocaleData = useThemeLocaleData()
+
+    const collapsible = computed(
+      () =>
+        item.value?.collapsible ?? themeLocaleData.value?.collapsible === true
+    )
+
+    const collapsed = ref(
+      collapsible.value === true &&
+        (item.value.collapsed ?? themeLocaleData.value?.collapsed === true)
+    )
 
     const handleClick = (e) => {
       e.preventDefault()
 
       collapsed.value = !collapsed.value
     }
-
-    const themeLocaleData = useThemeLocaleData()
-    const collapsible = computed(
-      () =>
-        item.value?.collapsible ?? themeLocaleData.value?.collapsible === true
-    )
 
     return {
       linkTarget,

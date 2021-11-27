@@ -7,6 +7,7 @@ export interface SidebarLink extends NavLink {
 export interface SidebarItemGroup<T> extends NavLink {
   type: 'group' | 'link-group'
   collapsible?: boolean
+  collapsed?: boolean
   children: T[]
 }
 

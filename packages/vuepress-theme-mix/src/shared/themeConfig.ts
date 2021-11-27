@@ -109,6 +109,11 @@ export interface MixThemeLocaleData extends LocaleData {
   collapsible?: boolean
 
   /**
+   * Control whether the sidebar group is collapsed or not by default
+   */
+   collapsed?: boolean
+
+  /**
    * Set to `false` to disable TOC
    */
   toc?: false

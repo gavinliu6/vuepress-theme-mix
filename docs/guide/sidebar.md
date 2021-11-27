@@ -90,7 +90,9 @@ Unlike the default theme of VuePress 2, the sidebar does not show the on-page ti
 
 ## Collapsible
 
-For side items whose type is `group` or `link-group`, you can use `collapsible` to specify whether it allows collapsing, the default value is `false`, i.e. collapsing is not supported.
+For side items whose type is `group` or `link-group`, you can use `collapsible` to specify whether it allows collapsing, the default value is `false`, i.e. collapsing is not supported. Additionally, you can use `collapsed` to specify whether it is collapsed when `collapsible=true` and the default value is `false`.
+
+These two config item can be placed in `themeConfig.*`.
 
 **Example**
 
@@ -98,6 +100,10 @@ For side items whose type is `group` or `link-group`, you can use `collapsible` 
 export default defineUserConfig<MixThemeConfig>({
   theme: 'vuepress-theme-mix',
   themeConfig: {
+    // global config
+    collapsible: true, // enable,
+    collapsed: true, // it's collapsed by default
+
     sidebar: {
       // a stand-alone sidebar
       '/guide/': [
@@ -111,7 +117,10 @@ export default defineUserConfig<MixThemeConfig>({
           text: 'Writing Content',
           link: 'writing-content/',
           children: ['markdown.md', 'typography.md'],
-          collapsible: true, // enable
+
+          // override global config
+          collapsible: true, // enable,
+          collapsed: true, // it's collapsed by default
         },
       ],
     },

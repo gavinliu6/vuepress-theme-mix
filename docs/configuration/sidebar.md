@@ -17,3 +17,11 @@
 - Default: `false`
 
 - Explanation: disable/enable sidebar items to be collapsible, check out [Guide > Sidebar](/guide/sidebar.html) for details.
+
+## collapsed
+
+- Type: `boolean`
+
+- Default: `false`
+
+- Explanation: check out [Guide > Sidebar](/guide/sidebar.html) for details.
