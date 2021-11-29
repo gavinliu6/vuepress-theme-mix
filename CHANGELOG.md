@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.8](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.7...v1.2.8) (2021-11-29)
+
+### Features
+
+- add config item `collapsed` ([6c9b7ef](https://github.com/gavinliu6/vuepress-theme-mix/commit/6c9b7efa28d95f3805a573a59fbb59591e87f1d1))
+
 ## [1.2.7](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.6...v1.2.7) (2021-11-06)
 
 ### Bug Fixes
