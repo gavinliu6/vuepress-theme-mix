@@ -71,7 +71,7 @@ export const resolveArraySidebarItems = (
   topPrefix: string = '/'
 ): ResolvedSidebarItem[] => {
   const isRelative = (p: string): boolean =>
-    !isLinkHttp(p) && p.substr(0, 1) !== '/'
+    !isLinkHttp(p) && p.substring(0, 1) !== '/'
 
   const handleChildItem = (prefix: string = topPrefix) => {
     return function (
@@ -140,7 +140,15 @@ export const resolveArraySidebarItems = (
       return item
     }
 
-    if (item.type === 'group' || item.type === 'link-group') {
+    if (item.type === 'group') {
+      if (isRelative(item.link)) item.link = topPrefix + item.link
+      return {
+        ...item,
+        children: item.children.map(handleChildItem(item.link)),
+      }
+    }
+
+    if (item.type === 'link-group') {
       if (isRelative(item.link)) item.link = topPrefix + item.link
       const resolved = useNavLink(item.link)
       item.link = resolved.link

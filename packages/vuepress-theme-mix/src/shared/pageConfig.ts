@@ -3,7 +3,7 @@ import type { NavLink } from './navbarConfig'
 import type { SidebarConfig } from './sidebarConfig'
 
 export interface MixThemePageData extends GitPluginPageData {
-  filePathRelative: string
+  filePathRelative: string | null
 }
 
 export interface MixThemePageFrontmatter {

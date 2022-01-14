@@ -1,6 +1,6 @@
-import { Theme, ThemeConfig } from '@vuepress/core'
+import { Page, Theme, ThemeConfig } from '@vuepress/core'
 import { path } from '@vuepress/utils'
-import type { MixThemeData, MixThemePluginConfig } from '../shared'
+import type { MixThemePageData, MixThemeData, MixThemePluginConfig } from '../shared'
 import {
   assignThemeData,
   resolveMediumZoomPluginOptions,
@@ -49,8 +49,12 @@ export const mixTheme: Theme<MixThemeConfig> = (
     ),
     clientAppSetupFiles: path.resolve(__dirname, '../client/clientAppSetup.js'),
 
-    // use the relative file path to generate edit link
-    extendsPageData: ({ filePathRelative }) => ({ filePathRelative }),
+    extendsPage: (page: Page<MixThemePageData>) => {
+      // save relative file path into page data to generate edit link
+      page.data.filePathRelative = page.filePathRelative
+      // save title into route meta to generate navbar and sidebar
+      page.routeMeta.title = page.title
+    },
 
     // buit-in plugins
     plugins: [

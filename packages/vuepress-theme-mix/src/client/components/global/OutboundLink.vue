@@ -6,7 +6,7 @@
 
 <script>
 import { defineComponent } from 'vue'
-import { OutboundLink } from '@vuepress/client'
+import { ExternalLinkIcon } from '@vuepress/plugin-external-link-icon/lib/client'
 import { useThemeLocaleData } from '../../composables'
 /**
  * Override the built-in `<OutboundLink>` for a11y
@@ -14,7 +14,7 @@ import { useThemeLocaleData } from '../../composables'
 export default defineComponent({
   name: 'OutboundLink',
   components: {
-    RawOutboundLink: OutboundLink,
+    RawOutboundLink: ExternalLinkIcon,
   },
   setup() {
     const themeLocale = useThemeLocaleData()

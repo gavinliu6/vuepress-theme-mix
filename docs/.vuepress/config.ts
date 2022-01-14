@@ -24,8 +24,8 @@ export default defineUserConfig<MixThemeConfig>({
   bundler:
     // specify bundler via environment variable
     process.env.DOCS_BUNDLER ??
-    // use vite in dev, use webpack in prod
-    (isProd ? '@vuepress/webpack' : '@vuepress/vite'),
+    // use vite by default
+    '@vuepress/vite',
 
   // Theme Config
   theme: 'vuepress-theme-mix',
@@ -55,7 +55,7 @@ export default defineUserConfig<MixThemeConfig>({
     },
 
     themePlugins: {
-      git: true,
+      git: isProd,
     },
   },
 
