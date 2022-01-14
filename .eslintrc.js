@@ -30,5 +30,6 @@ module.exports = {
     'array-callback-return': 'off',
     'vue/no-v-for-template-key': 'off',
     'vue/script-setup-uses-vars': 'off',
+    'vue/multi-word-component-names': 'off',
   },
 }
