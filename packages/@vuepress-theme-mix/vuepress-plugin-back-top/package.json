@@ -30,8 +30,8 @@
     "copy": "cpx \"src/**/*.vue\" lib"
   },
   "dependencies": {
-    "@vuepress/core": "2.0.0-beta.33",
-    "@vuepress/utils": "2.0.0-beta.33",
+    "@vuepress/core": "2.0.0-beta.35",
+    "@vuepress/utils": "2.0.0-beta.35",
     "ts-debounce": "^4.0.0",
     "vue": "^3.2.26"
   },
