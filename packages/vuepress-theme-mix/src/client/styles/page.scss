@@ -25,6 +25,17 @@
       display: none;
     }
   }
+
+  .footnotes {
+    color: #888;
+    line-height: 1.2;
+    font-size: 14px;
+
+    p {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+  }
 }
 
 .no-sidebar .theme-mix-content {
@@ -34,8 +45,8 @@
 .page-meta {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
-  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
   font-size: 14px;
   color: var(--text-tertiary-color);
 
