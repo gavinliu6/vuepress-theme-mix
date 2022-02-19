@@ -12,7 +12,7 @@ export const resolveMediumZoomPluginOptions = (
   }
 
   return {
-    selector: '.theme-mix-content > img, .theme-mix-content :not(a) > img',
+    selector: '.theme-mix-content > img:not(.no-zoom), .theme-mix-content :not(a) > img',
     zoomOptions: {},
     delay: 500,
   }
