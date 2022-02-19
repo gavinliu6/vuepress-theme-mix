@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.10](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.9...v1.2.10) (2022-02-19)
+
+### Features
+
+- add .no-zoom class for medium-zoom ([30a30d6](https://github.com/gavinliu6/vuepress-theme-mix/commit/30a30d633324a90542615fcfd9fc0c391c1262d3))
+
 ## [1.2.9](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.8...v1.2.9) (2022-01-14)
 
 **Note:** Version bump only for package vuepress-theme-mix
