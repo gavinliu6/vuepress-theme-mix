@@ -38,14 +38,13 @@
 
 // 1200px and up
 @media (min-width: $desktop) {
-  .theme-mix-toc {
+  .toc-wrap .scrollbar {
     position: sticky;
     top: 6.1rem;
     max-height: calc(100vh - 5rem);
-    overflow-y: auto;
   }
 
-  .with-navbar .theme-mix-toc {
+  .with-navbar .toc-wrap .scrollbar {
     max-height: calc(100vh - 8.6rem);
   }
 
@@ -85,7 +84,7 @@
 
 // less than 1200px
 @media (max-width: ($desktop - 0.02px)) {
-  .theme-mix-toc {
+  .toc-wrap .scrollbar {
     margin: 0;
     padding: 0;
     border: none;

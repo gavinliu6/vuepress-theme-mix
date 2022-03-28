@@ -41,13 +41,8 @@
     transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   .sidebar-inner {
-    height: 100%;
-    padding: 2rem 0 2rem 1.5rem;
-    overflow-y: hidden;
-
-    &:hover {
-      overflow-y: auto;
-    }
+    padding: 1.5rem;
+    padding-right: 0;
   }
 }
 

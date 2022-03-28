@@ -1,39 +1,44 @@
 <template>
-  <div class="theme-mix-toc" :class="{ 'toc-open': isTocOpen }">
-    <div class="toc-mask" @click="isTocOpen = false"></div>
-    <button class="mobile-toc-title" @click="isTocOpen = !isTocOpen">
-      <svg
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.5"
-        shape-rendering="geometricPrecision"
-        viewBox="0 0 24 24"
-        height="1.5em"
-        width="1.5em"
-        style="color: currentcolor"
-      >
-        <path d="M21 10H7M21 6H3M21 14H3M21 18H7"></path>
-      </svg>
-    </button>
-    <div class="toc-items-wrap" :class="{ 'show-toc': isTocOpen }">
-      <ul class="toc-items">
-        <li
-          class="toc-item"
-          v-for="anchor in anchors"
-          :key="anchor.slug"
-          :class="{
-            ['toc-level-' + anchor.level]: true,
-            active: `#${anchor.slug}` === hash,
-          }"
-          @click="isTocOpen = !isTocOpen"
+  <Scrollbar>
+    <div class="theme-mix-toc" :class="{ 'toc-open': isTocOpen }">
+      <div class="toc-mask" @click="isTocOpen = false"></div>
+      <button class="mobile-toc-title" @click="isTocOpen = !isTocOpen">
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          shape-rendering="geometricPrecision"
+          viewBox="0 0 24 24"
+          height="1.5em"
+          width="1.5em"
+          style="color: currentcolor"
         >
-          <a class="toc-anchor" :href="'#' + anchor.slug">{{ anchor.title }}</a>
-        </li>
-      </ul>
+          <path d="M21 10H7M21 6H3M21 14H3M21 18H7"></path>
+        </svg>
+      </button>
+
+      <div class="toc-items-wrap" :class="{ 'show-toc': isTocOpen }">
+        <ul class="toc-items">
+          <li
+            class="toc-item"
+            v-for="anchor in anchors"
+            :key="anchor.slug"
+            :class="{
+              ['toc-level-' + anchor.level]: true,
+              active: `#${anchor.slug}` === hash,
+            }"
+            @click="isTocOpen = !isTocOpen"
+          >
+            <a class="toc-anchor" :href="'#' + anchor.slug">{{
+              anchor.title
+            }}</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </Scrollbar>
 </template>
 
 <script lang="ts">
@@ -44,9 +49,14 @@ import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue'
 import type { ComputedRef } from 'vue'
 import { useThemeLocaleData } from '../composables'
 import { useRoute } from 'vue-router'
+import Scrollbar from './Scrollbar.vue'
 
 export default defineComponent({
   name: 'Toc',
+
+  components: {
+    Scrollbar,
+  },
 
   setup() {
     const page = usePageData()

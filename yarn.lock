@@ -315,6 +315,11 @@
   dependencies:
     "@cspotcode/source-map-consumer" "0.8.0"
 
+"@css-render/vue3-ssr@^0.15.7":
+  version "0.15.9"
+  resolved "https://registry.yarnpkg.com/@css-render/vue3-ssr/-/vue3-ssr-0.15.9.tgz#59ce56a0ee417748845af9e29784235381f9b049"
+  integrity sha512-b3wvEIZYjToOEAV/oUqVtcg+MPF/iSZB9VmVF7fMAAAfvVTc2kB4TZDhGZCMkGjGZxOUm1jia7q/Z9FJnJGLKw==
+
 "@docsearch/css@3.0.0-alpha.42":
   version "3.0.0-alpha.42"
   resolved "https://registry.yarnpkg.com/@docsearch/css/-/css-3.0.0-alpha.42.tgz#deb6049e999d6ca9451eba4793cb5b6da28c8773"
@@ -337,6 +342,11 @@
     "@algolia/autocomplete-preset-algolia" "1.5.0"
     "@docsearch/css" "3.0.0-alpha.42"
     algoliasearch "^4.0.0"
+
+"@emotion/hash@~0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
+  integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
 "@eslint/eslintrc@^1.2.1":
   version "1.2.1"
@@ -1292,6 +1302,14 @@
   resolved "https://registry.yarnpkg.com/@types/hash-sum/-/hash-sum-1.0.0.tgz#838f4e8627887d42b162d05f3d96ca636c2bc504"
   integrity sha512-FdLBT93h3kcZ586Aee66HPCVJ6qvxVjBlDWNmxSGSbCZe9hTsjRKdSsl4y1T+3zfujxo9auykQMnFsfyHWD7wg==
 
+"@types/jest@^27.0.1":
+  version "27.4.1"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.4.1.tgz#185cbe2926eaaf9662d340cc02e548ce9e11ab6d"
+  integrity sha512-23iPJADSmicDVrWk+HT58LMJtzLAnB2AgIzplQuq/bSrGaxCrlvRFjGbXmamnnk/mAmCdLStiGqggu28ocUyiw==
+  dependencies:
+    jest-matcher-utils "^27.0.0"
+    pretty-format "^27.0.0"
+
 "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
@@ -1335,7 +1353,7 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node@*", "@types/node@>=12":
+"@types/node@*", "@types/node@>=12", "@types/node@~17.0.5":
   version "17.0.23"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.23.tgz#3b41a6e643589ac6442bdbd7a4a3ded62f33f7da"
   integrity sha512-UxDxWn7dl97rKVeVS61vErvw086aCYhDLyvRQZ5Rk65rZKepaFdm53GeqXaKBuOhED4e9uWq34IC3TdSdJJ2Gw==
@@ -1943,6 +1961,11 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   integrity sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==
   dependencies:
     color-convert "^2.0.1"
+
+ansi-styles@^5.0.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-5.2.0.tgz#07449690ad45777d1924ac2abb2fc8895dba836b"
+  integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
 
 ansi-styles@^6.0.0:
   version "6.1.0"
@@ -2615,6 +2638,15 @@ cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+css-render@^0.15.7:
+  version "0.15.9"
+  resolved "https://registry.yarnpkg.com/css-render/-/css-render-0.15.9.tgz#1bf0d3fe4d1202a236c38f2e9cf7915c0f0c6751"
+  integrity sha512-FMVcWsVipKEBR/mVf1+pIjCRQdztILVKxbp8TN5/Vf0Q/fdTq0OIb8JRW/pk7PP1eeWnB/ejQ0MNBe7ELjLblg==
+  dependencies:
+    "@emotion/hash" "~0.8.0"
+    "@types/node" "~17.0.5"
+    csstype "~3.0.5"
+
 css-tree@~2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-2.0.4.tgz#be44314f17e9ac85fe894a5888941782e1123c29"
@@ -2635,7 +2667,7 @@ csstype@^2.6.8:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.20.tgz#9229c65ea0b260cf4d3d997cb06288e36a8d6dda"
   integrity sha512-/WwNkdXfckNgw6S5R125rrW8ez139lBHWouiBvX8dfMFtcn6V81REDqnH7+CRpRipfYlyU1CmOnOxrmGcFOjeA==
 
-csstype@^3.0.2:
+csstype@^3.0.2, csstype@~3.0.5:
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.11.tgz#d66700c5eacfac1940deb4e3ee5642792d85cd33"
   integrity sha512-sa6P2wJ+CAbgyy4KFssIb/JNMLxFvKF1pCYCSXS8ZMuqZnMsrxqI2E5sPyoTpxoPU/gVZMzr2zjOfg8GIZOMsw==
@@ -2772,6 +2804,11 @@ dezalgo@^1.0.0:
   dependencies:
     asap "^2.0.0"
     wrappy "1"
+
+diff-sequences@^27.5.1:
+  version "27.5.1"
+  resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-27.5.1.tgz#eaecc0d327fd68c8d9672a1e64ab8dccb2ef5327"
+  integrity sha512-k1gCAXAsNgLwEL+Y8Wvl+M6oEFj5bgazfZULpS5CneoPPXRaCCW7dm+q21Ky2VEE5X+VeRDBVg1Pcvvsr4TtNQ==
 
 diff@^4.0.1:
   version "4.0.2"
@@ -3377,6 +3414,11 @@ eventemitter3@^4.0.4:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
+
+evtd@^0.2.2, evtd@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/evtd/-/evtd-0.2.3.tgz#185158d533b4440ee831a0fa0cffde16e8bda504"
+  integrity sha512-tmiT1YUVqFjTY+BSBOAskL83xNx41iUfpvKP6Gcd/xMHjg3mnER98jXGXJyKnxCG19uPc6EhZiUC+MUyvoqCtw==
 
 execa@^5.0.0, execa@^5.1.1:
   version "5.1.1"
@@ -4301,6 +4343,31 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
+
+jest-diff@^27.5.1:
+  version "27.5.1"
+  resolved "https://registry.yarnpkg.com/jest-diff/-/jest-diff-27.5.1.tgz#a07f5011ac9e6643cf8a95a462b7b1ecf6680def"
+  integrity sha512-m0NvkX55LDt9T4mctTEgnZk3fmEg3NRYutvMPWM/0iPnkFj2wIeF45O1718cMSOFO1vINkqmxqD8vE37uTEbqw==
+  dependencies:
+    chalk "^4.0.0"
+    diff-sequences "^27.5.1"
+    jest-get-type "^27.5.1"
+    pretty-format "^27.5.1"
+
+jest-get-type@^27.5.1:
+  version "27.5.1"
+  resolved "https://registry.yarnpkg.com/jest-get-type/-/jest-get-type-27.5.1.tgz#3cd613c507b0f7ace013df407a1c1cd578bcb4f1"
+  integrity sha512-2KY95ksYSaK7DMBWQn6dQz3kqAf3BB64y2udeG+hv4KfSOb9qwcYQstTJc1KCbsix+wLZWZYN8t7nwX3GOBLRw==
+
+jest-matcher-utils@^27.0.0:
+  version "27.5.1"
+  resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-27.5.1.tgz#9c0cdbda8245bc22d2331729d1091308b40cf8ab"
+  integrity sha512-z2uTx/T6LBaCoNWNFWwChLBKYxTMcGBRjAt+2SbP929/Fflb9aa5LGma654Rz8z9HLxsrUaYzxE9T/EFIL/PAw==
+  dependencies:
+    chalk "^4.0.0"
+    jest-diff "^27.5.1"
+    jest-get-type "^27.5.1"
+    pretty-format "^27.5.1"
 
 js-tokens@^4.0.0:
   version "4.0.0"
@@ -5605,6 +5672,15 @@ prettier@2.6.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.6.1.tgz#d472797e0d7461605c1609808e27b80c0f9cfe17"
   integrity sha512-8UVbTBYGwN37Bs9LERmxCPjdvPxlEowx2urIL6urHzdb3SDq4B/Z6xLFCblrSnE4iKWcS6ziJ3aOYrc1kz/E2A==
 
+pretty-format@^27.0.0, pretty-format@^27.5.1:
+  version "27.5.1"
+  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-27.5.1.tgz#2181879fdea51a7a5851fb39d920faa63f01d88e"
+  integrity sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==
+  dependencies:
+    ansi-regex "^5.0.1"
+    ansi-styles "^5.0.0"
+    react-is "^17.0.1"
+
 prismjs@^1.26.0:
   version "1.27.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.27.0.tgz#bb6ee3138a0b438a3653dd4d6ce0cc6510a45057"
@@ -5691,6 +5767,11 @@ quick-lru@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-4.0.1.tgz#5b8878f113a58217848c6482026c73e1ba57727f"
   integrity sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==
+
+react-is@^17.0.1:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
+  integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
 read-cmd-shim@^2.0.0:
   version "2.0.0"
@@ -5870,6 +5951,11 @@ require-directory@^2.1.1:
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha1-jGStX9MNqxyXbiNE/+f3kqam30I=
 
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
+
 resolve-cwd@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/resolve-cwd/-/resolve-cwd-3.0.0.tgz#0f0075f1bb2544766cf73ba6a6e2adfebcb13f2d"
@@ -6012,6 +6098,13 @@ section-matter@^1.0.0:
   dependencies:
     extend-shallow "^2.0.1"
     kind-of "^6.0.0"
+
+seemly@^0.3.1:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/seemly/-/seemly-0.3.3.tgz#a6482f374e042f873f63dc7622cb1529c251574e"
+  integrity sha512-mAyqemz41e9HiZPMXAn7NtTExJgztwco5cdZjrt/iViU/oFeav+Q8K1c93M/tIZZ00QkT65JMr4xXQk7Vv5hWQ==
+  dependencies:
+    "@types/jest" "^27.0.1"
 
 "semver@2 || 3 || 4 || 5", semver@^5.6.0, semver@^5.7.1:
   version "5.7.1"
@@ -6772,6 +6865,13 @@ validate-npm-package-name@^3.0.0:
   dependencies:
     builtins "^1.0.3"
 
+vdirs@^0.1.4:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/vdirs/-/vdirs-0.1.7.tgz#388cda8d1916349ed2ea3b56e31d0493eaf4c15b"
+  integrity sha512-MEUaLhV1jJyUqA2Ar4DfvlQx8jWs+PpCZ2dbM0ILelpMWGOybzt8ddL456VxeIbY/tkuDGT/Wzb8GG4LCuLuHw==
+  dependencies:
+    evtd "^0.2.2"
+
 verror@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400"
@@ -6792,6 +6892,13 @@ vite@^2.7.13:
     rollup "^2.59.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+vooks@^0.2.12, vooks@^0.2.4:
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/vooks/-/vooks-0.2.12.tgz#2b6e23330b77bac81c7f7a344c4ca3e9f4f6c373"
+  integrity sha512-iox0I3RZzxtKlcgYaStQYKEzWWGAduMmq+jS7OrNdQo1FgGfPMubGL3uGHOU9n97NIvfFDBGnpSvkWyb/NSn/Q==
+  dependencies:
+    evtd "^0.2.2"
 
 vscode-oniguruma@^1.6.1:
   version "1.6.2"
@@ -6855,6 +6962,19 @@ vuepress@2.0.0-beta.36:
   integrity sha512-EObFjxn91cMRZ+9cgDGjKaTHaCH4NChMqUIGRnPTrIlJfKa4eX4aS0GzPtHSy+L1fKgNnDyUq67fW8q3hrHVjA==
   dependencies:
     vuepress-vite "2.0.0-beta.36"
+
+vueuc@^0.4.28:
+  version "0.4.28"
+  resolved "https://registry.yarnpkg.com/vueuc/-/vueuc-0.4.28.tgz#9d705bfc2eaf150921340ea5c05d2de659a2e326"
+  integrity sha512-Udr1ROwJocHIThA5G+H5qN1QEFI4pskDvl+w/2Ul2XIjaAeIuQ6ygEOKHOXRJqKX5PxcTi1QQUpb7yQWsDw7ww==
+  dependencies:
+    "@css-render/vue3-ssr" "^0.15.7"
+    css-render "^0.15.7"
+    evtd "^0.2.2"
+    resize-observer-polyfill "^1.5.1"
+    seemly "^0.3.1"
+    vdirs "^0.1.4"
+    vooks "^0.2.4"
 
 wcwidth@^1.0.0, wcwidth@^1.0.1:
   version "1.0.1"
