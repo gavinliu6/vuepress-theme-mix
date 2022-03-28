@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.10...v1.3.0) (2022-03-28)
+
+### Bug Fixes
+
+- update medium-zoom selector ([dbea3cb](https://github.com/gavinliu6/vuepress-theme-mix/commit/dbea3cb00af209cd76899b1dde59f49685bf4671))
+
+### Features
+
+- custom scrollbar ([0798704](https://github.com/gavinliu6/vuepress-theme-mix/commit/079870491c74c497e3b07ea00b8917d19268dd98))
+
 ## [1.2.10](https://github.com/gavinliu6/vuepress-theme-mix/compare/v1.2.9...v1.2.10) (2022-02-19)
 
 ### Features
