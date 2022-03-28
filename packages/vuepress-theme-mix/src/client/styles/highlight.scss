@@ -158,7 +158,7 @@ div[class*='language-'] {
   div[class*='language-'].ext-#{$lang} {
     &:before {
       content: '' + $lang;
-      color: var(--text-secondary-color);
+      color: #6a6c6d;
     }
   }
 }
