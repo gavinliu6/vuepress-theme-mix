@@ -33,7 +33,11 @@
 }
 
 .toc-anchor {
-  color: inherit;
+  color: var(--text-secondary-color);
+}
+
+.toc-item.active .toc-anchor {
+  color: var(--theme-color);
 }
 
 // 1200px and up
@@ -50,7 +54,7 @@
 
   .toc-title {
     padding-bottom: 0.25rem;
-    color: var(--text-color);
+    color: var(--theme-color);
     font-weight: 600;
   }
 
@@ -76,7 +80,6 @@
     }
 
     &.active {
-      color: var(--link-color);
       border-left: 1px solid var(--link-color);
     }
   }
@@ -181,10 +184,6 @@
     }
     &.toc-level-6 {
       padding-left: 4rem;
-    }
-
-    &.active {
-      color: var(--theme-color);
     }
   }
 }
