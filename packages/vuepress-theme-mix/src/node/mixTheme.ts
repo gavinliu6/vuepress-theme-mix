@@ -85,6 +85,11 @@ export const mixTheme = ({
           resolveContainerPluginOptions(localeOptions, 'danger')
         )
         : [],
+      themePlugins.container?.reference !== false
+        ? containerPlugin(
+          resolveContainerPluginOptions(localeOptions, 'reference')
+        )
+        : [],
       themePlugins.container?.details !== false
         ? containerPlugin({
           type: 'details',

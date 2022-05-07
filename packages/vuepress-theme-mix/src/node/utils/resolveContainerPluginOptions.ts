@@ -1,5 +1,5 @@
 import type { ContainerPluginOptions } from '@vuepress/plugin-container'
-import type { MixThemePluginConfig, MixThemeData } from '../../shared'
+import type { MixThemeData } from '../../shared'
 
 /**
  * Resolve options for @vuepress/plugin-container
