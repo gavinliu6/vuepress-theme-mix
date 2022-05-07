@@ -29,16 +29,18 @@ yarn add -D vuepress-theme-mix@latest
 
 And then setting the theme in `docs/.vuepress/config.ts` file:
 
-```ts{9}:no-line-numbers
+```ts{9-11}:no-line-numbers
 // docs/.vuepress/config.ts
 import { defineUserConfig } from 'vuepress'
-import type { MixThemeConfig } from 'vuepress-theme-mix/lib/node'
+import { mixTheme } from 'vuepress-theme-mix'
 
-export default defineUserConfig<MixThemeConfig>({
+export default defineUserConfig({
   // ……
 
   // Theme Config
-  theme: 'vuepress-theme-mix',
+  theme: mixTheme({
+    // ……
+  }),
 
   // ……
 })

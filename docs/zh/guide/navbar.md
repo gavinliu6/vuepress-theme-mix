@@ -13,12 +13,11 @@
 **示例**
 
 ```ts
-export default defineUserConfig<MixThemeConfig>({
-  theme: 'vuepress-theme-mix',
-  themeConfig: {
+export default defineUserConfig({
+  theme: mixTheme({
     logo: '/images/logo.png',
     title: 'VuePress Mix Theme',
-  },
+  }),
 })
 ```
 
@@ -33,9 +32,8 @@ export default defineUserConfig<MixThemeConfig>({
 **示例**
 
 ```ts
-export default defineUserConfig<MixThemeConfig>({
-  theme: 'vuepress-theme-mix',
-  themeConfig: {
+export default defineUserConfig({
+  theme: mixTheme({
     navbar: [
       // 一个内链导航项，导航至 /zh/README.md
       {
@@ -67,7 +65,7 @@ export default defineUserConfig<MixThemeConfig>({
         ],
       },
     ],
-  },
+  }),
 })
 ```
 

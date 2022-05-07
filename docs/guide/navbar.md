@@ -13,12 +13,11 @@ Note that the configuration item `title` here is used only for the navigation ba
 **Example**
 
 ```ts
-export default defineUserConfig<MixThemeConfig>({
-  theme: 'vuepress-theme-mix',
-  themeConfig: {
+export default defineUserConfig({
+  theme: mixTheme({
     logo: '/images/logo.png',
     title: 'VuePress Mix Theme',
-  },
+  }),
 })
 ```
 
@@ -33,9 +32,8 @@ The navigation links are specified via the configuration item `themeConfig.navba
 **Example**
 
 ```ts
-export default defineUserConfig<MixThemeConfig>({
-  theme: 'vuepress-theme-mix',
-  themeConfig: {
+export default defineUserConfig({
+  theme: mixTheme({
     navbar: [
       // one inline link，to /README.md
       {
@@ -70,7 +68,7 @@ export default defineUserConfig<MixThemeConfig>({
         ],
       },
     ],
-  },
+  }),
 })
 ```
 

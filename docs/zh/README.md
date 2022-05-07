@@ -29,16 +29,18 @@ yarn add -D vuepress-theme-mix@latest
 
 接着，在 `docs/.vuepress/config.ts` 文件中指定它:
 
-```ts{9}:no-line-numbers
+```ts{9-11}:no-line-numbers
 // docs/.vuepress/config.ts
 import { defineUserConfig } from 'vuepress'
-import type { MixThemeConfig } from 'vuepress-theme-mix/lib/node'
+import { mixTheme } from 'vuepress-theme-mix'
 
-export default defineUserConfig<MixThemeConfig>({
+export default defineUserConfig({
   // ……
 
-  // 指定使用主题
-  theme: 'vuepress-theme-mix',
+  // 主题配置
+  theme: mixTheme({
+    // ……
+  }),
 
   // ……
 })

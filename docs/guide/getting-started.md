@@ -19,13 +19,15 @@ yarn add -D vuepress-theme-mix@latest
 ```ts
 // docs/.vuepress/config.ts
 import { defineUserConfig } from 'vuepress'
-import type { MixThemeConfig } from 'vuepress-theme-mix/lib/node'
+import { mixTheme } from 'vuepress-theme-mix'
 
-export default defineUserConfig<MixThemeConfig>({
+export default defineUserConfig({
   // ……
 
-  // Theme Config
-  theme: 'vuepress-theme-mix',
+  // 主题配置
+  theme: mixTheme({
+    // ……
+  }),
 
   // ……
 })
