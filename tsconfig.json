@@ -2,10 +2,10 @@
   "extends": "./tsconfig.base.json",
   "references": [
     {
-      "path": "./packages/vuepress-theme-mix/tsconfig.build.json"
+      "path": "./packages/@vuepress-theme-mix/vuepress-plugin-back-top/tsconfig.build.json"
     },
     {
-      "path": "./packages/@vuepress-theme-mix/vuepress-plugin-back-top/tsconfig.build.json"
+      "path": "./packages/vuepress-theme-mix/tsconfig.build.json"
     }
   ],
   "files": []

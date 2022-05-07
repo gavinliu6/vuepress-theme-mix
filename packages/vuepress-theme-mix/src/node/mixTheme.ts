@@ -1,18 +1,21 @@
-import { Page, Theme, ThemeConfig } from '@vuepress/core'
+import type { Page, Theme } from '@vuepress/core'
+import { containerPlugin } from '@vuepress/plugin-container'
 import { path } from '@vuepress/utils'
-import type { MixThemePageData, MixThemeData, MixThemePluginConfig } from '../shared'
-import {
-  assignThemeData,
-  resolveMediumZoomPluginOptions,
-  resolveContainerPluginOptions,
-  resolveContainerPluginOptionsForCodeGroup,
-  resolveContainerPluginOptionsForCodeGroupItem,
-  resolveContainerPluginOptionsForDetails,
-  resolveGitPluginOptions,
-  resolveShikiPluginOptions,
-} from './utils'
+import { gitPlugin } from '@vuepress/plugin-git'
+import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
+import { nprogressPlugin } from '@vuepress/plugin-nprogress'
+import { palettePlugin } from '@vuepress/plugin-palette'
+import { shikiPlugin } from '@vuepress/plugin-shiki'
+import { themeDataPlugin } from '@vuepress/plugin-theme-data'
+import type {
+  MixThemePageData,
+  MixThemeData,
+  MixThemePluginConfig,
+} from '../shared'
+import { assignThemeData, resolveContainerPluginOptions } from './utils'
+import { backTopPlugin } from '@vuepress-theme-mix/vuepress-plugin-back-top'
 
-export interface MixThemeConfig extends ThemeConfig, MixThemeData {
+export interface MixThemeConfig extends MixThemeData {
   /**
    * To avoid confusion with the root `plugins` option,
    * we use `themePlugins`
@@ -20,21 +23,10 @@ export interface MixThemeConfig extends ThemeConfig, MixThemeData {
   themePlugins?: MixThemePluginConfig
 }
 
-export const mixTheme: Theme<MixThemeConfig> = (
-  { themePlugins = {}, ...localeOptions },
-  app
-) => {
-  if (app.env.isDev && app.options.bundler.endsWith('vite')) {
-    app.options.bundlerConfig.viteOptions = require('vite').mergeConfig(
-      app.options.bundlerConfig.viteOptions,
-      {
-        optimizeDeps: {
-          exclude: ['ts-debounce'],
-        },
-      }
-    )
-  }
-
+export const mixTheme = ({
+  themePlugins = {},
+  ...localeOptions
+}: MixThemeConfig = {}): Theme => {
   assignThemeData(localeOptions)
 
   return {
@@ -49,7 +41,7 @@ export const mixTheme: Theme<MixThemeConfig> = (
     ),
     clientAppSetupFiles: path.resolve(__dirname, '../client/clientAppSetup.js'),
 
-    extendsPage: (page: Page<MixThemePageData>) => {
+    extendsPage: (page: Page<Partial<MixThemePageData>>) => {
       // save relative file path into page data to generate edit link
       page.data.filePathRelative = page.filePathRelative
       // save title into route meta to generate navbar and sidebar
@@ -58,43 +50,84 @@ export const mixTheme: Theme<MixThemeConfig> = (
 
     // buit-in plugins
     plugins: [
-      ['@vuepress-theme-mix/back-top', themePlugins.backTop !== false],
+      // ['@vuepress-theme-mix/back-top', themePlugins.backTop !== false],
 
-      ['@vuepress/theme-data', { themeData: localeOptions }],
-      ['@vuepress/palette', { preset: 'sass' }],
+      // @vuepress-theme-mix/back-top
+      themePlugins.backTop !== false ? backTopPlugin() : [],
 
-      ['@vuepress/medium-zoom', resolveMediumZoomPluginOptions(themePlugins)],
-      [
-        '@vuepress/container',
-        resolveContainerPluginOptions(themePlugins, localeOptions, 'tip'),
-      ],
-      [
-        '@vuepress/container',
-        resolveContainerPluginOptions(themePlugins, localeOptions, 'warning'),
-      ],
-      [
-        '@vuepress/container',
-        resolveContainerPluginOptions(themePlugins, localeOptions, 'danger'),
-      ],
-      [
-        '@vuepress/container',
-        resolveContainerPluginOptions(themePlugins, localeOptions, 'reference'),
-      ],
-      [
-        '@vuepress/container',
-        resolveContainerPluginOptionsForDetails(themePlugins),
-      ],
-      [
-        '@vuepress/container',
-        resolveContainerPluginOptionsForCodeGroup(themePlugins),
-      ],
-      [
-        '@vuepress/container',
-        resolveContainerPluginOptionsForCodeGroupItem(themePlugins),
-      ],
-      ['@vuepress/shiki', resolveShikiPluginOptions(themePlugins)],
-      ['@vuepress/nprogress', themePlugins.nprogress !== false],
-      ['@vuepress/git', resolveGitPluginOptions(themePlugins, localeOptions)],
+      // @vuepress/plugin-theme-data
+      themeDataPlugin({ themeData: localeOptions }),
+
+      // @vuepress/plugin-palette
+      palettePlugin({ preset: 'sass' }),
+
+      // @vuepress/plugin-medium-zoom
+      themePlugins.mediumZoom !== false
+        ? mediumZoomPlugin({
+          selector:
+              '.theme-mix-content > img:not(.no-zoom), .theme-mix-content :not(a) > img:not(.no-zoom)',
+          zoomOptions: {},
+          delay: 300,
+        })
+        : [],
+
+      // @vuepress/plugin-container
+      themePlugins.container?.tip !== false
+        ? containerPlugin(resolveContainerPluginOptions(localeOptions, 'tip'))
+        : [],
+      themePlugins.container?.warning !== false
+        ? containerPlugin(
+          resolveContainerPluginOptions(localeOptions, 'warning')
+        )
+        : [],
+      themePlugins.container?.danger !== false
+        ? containerPlugin(
+          resolveContainerPluginOptions(localeOptions, 'danger')
+        )
+        : [],
+      themePlugins.container?.details !== false
+        ? containerPlugin({
+          type: 'details',
+          before: (info) =>
+              `<details class="custom-container details">${
+                info ? `<summary>${info}</summary>` : ''
+              }\n`,
+          after: () => '</details>\n',
+        })
+        : [],
+      themePlugins.container?.codeGroup !== false
+        ? containerPlugin({
+          type: 'code-group',
+          before: () => '<CodeGroup>\n',
+          after: () => '</CodeGroup>\n',
+        })
+        : [],
+      themePlugins.container?.codeGroupItem !== false
+        ? containerPlugin({
+          type: 'code-group-item',
+          before: (info) => `<CodeGroupItem title="${info}">\n`,
+          after: () => '</CodeGroupItem>\n',
+        })
+        : [],
+
+      // @vuepress/plugin-shiki
+      themePlugins?.shiki !== false
+        ? shikiPlugin({
+          theme: themePlugins.shiki?.theme ?? 'github-dark-dimmed',
+          langs: themePlugins.shiki?.langs ?? [],
+        })
+        : [],
+
+      // @vuepress/plugin-nprogress
+      themePlugins?.nprogress !== false ? nprogressPlugin() : [],
+
+      // @vuepress/plugin-git
+      themePlugins?.git !== false
+        ? gitPlugin({
+          createdTime: false,
+          updatedTime: localeOptions.lastUpdated !== false,
+        })
+        : [],
     ],
 
     extendsMarkdown: (md): void => {

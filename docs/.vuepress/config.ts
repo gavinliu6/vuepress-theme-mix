@@ -1,10 +1,13 @@
+import { viteBundler } from '@vuepress/bundler-vite'
+import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import { defineUserConfig } from 'vuepress'
-import type { MixThemeConfig } from 'vuepress-theme-mix/lib/node'
 import { navbar, sidebar } from './configs'
+import { mixTheme } from 'vuepress-theme-mix'
 
 const isProd = process.env.NODE_ENV === 'production'
 
-export default defineUserConfig<MixThemeConfig>({
+export default defineUserConfig({
   // Site Config
   base: '/',
 
@@ -21,15 +24,10 @@ export default defineUserConfig<MixThemeConfig>({
     },
   },
 
-  bundler:
-    // specify bundler via environment variable
-    process.env.DOCS_BUNDLER ??
-    // use vite by default
-    '@vuepress/vite',
+  bundler: viteBundler(),
 
   // Theme Config
-  theme: 'vuepress-theme-mix',
-  themeConfig: {
+  theme: mixTheme({
     logo: '/images/logo.png',
     title: 'VuePress Mix Theme', // for navbar
     docsRepo: 'gavinliu6/vuepress-theme-mix',
@@ -57,34 +55,28 @@ export default defineUserConfig<MixThemeConfig>({
     themePlugins: {
       git: isProd,
     },
-  },
+  }),
 
   // Directory Config
   dest: 'public',
 
   // Plugins Config
   plugins: [
-    [
-      '@vuepress/plugin-docsearch',
-      {
-        apiKey: 'fba2ba8ba151f7d5bb1adf1e5b4b4f39',
-        indexName: 'vuepress-theme-mix',
-        locales: {
-          '/': {
-            placeholder: 'Search Documentation',
-          },
-          '/zh/': {
-            placeholder: '搜索文档',
-          },
+    docsearchPlugin({
+      apiKey: 'fba2ba8ba151f7d5bb1adf1e5b4b4f39',
+      indexName: 'vuepress-theme-mix',
+      locales: {
+        '/': {
+          placeholder: 'Search Documentation',
+        },
+        '/zh/': {
+          placeholder: '搜索文档',
         },
       },
-    ],
-    [
-      '@vuepress/plugin-google-analytics',
-      {
-        // we have multiple deployments, which would use different id
-        id: process.env.GA_ID,
-      },
-    ],
+    }),
+    googleAnalyticsPlugin({
+      // we have multiple deployments, which would use different id
+      id: process.env.GA_ID,
+    }),
   ],
 })
