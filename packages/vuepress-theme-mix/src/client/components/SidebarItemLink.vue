@@ -1,5 +1,5 @@
 <template>
-  <li class="sidebar-item" :class="{ active: isActiveItem }">
+  <li class="sidebar-item" :class="{ active: isActiveItem }" :title="item.text">
     <RouterLink
       v-if="isRouterLink"
       class="sidebar-item-link"

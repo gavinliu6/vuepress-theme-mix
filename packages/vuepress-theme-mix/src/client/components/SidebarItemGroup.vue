@@ -1,5 +1,5 @@
 <template>
-  <li class="sidebar-item" :class="{ collapsed: collapsed }">
+  <li class="sidebar-item" :class="{ collapsed: collapsed }" :title="item.text">
     <a
       v-if="item.type === 'group'"
       class="sidebar-item-group"

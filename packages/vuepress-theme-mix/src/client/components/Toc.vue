@@ -30,6 +30,7 @@
               active: `#${anchor.slug}` === hash,
             }"
             @click="isTocOpen = !isTocOpen"
+            :title="anchor.title"
           >
             <a class="toc-anchor" :href="'#' + anchor.slug">{{
               anchor.title
