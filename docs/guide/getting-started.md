@@ -6,6 +6,8 @@
 
 - [Yarn 1 (Classic)](https://classic.yarnpkg.com/en/docs/getting-started) is recommended.
 
+- Compatible with VuePress v2.0.0-beta.48
+
 ## Manual Installation
 
 If you already have a VuePress 2 project, then you just need to install this theme manually and specify it in the configuration file.

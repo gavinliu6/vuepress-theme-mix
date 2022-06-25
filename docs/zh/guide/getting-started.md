@@ -6,6 +6,8 @@
 
 - 推荐使用 [Yarn 1 (Classic)](https://classic.yarnpkg.com/en/docs/getting-started)
 
+- 兼容 VuePress v2.0.0-beta.48
+
 ## 手动安装
 
 如果你已经拥有了一个 VuePress 2 项目，那么你只需要手动安装一下本主题，并在配置文件中指明要使用它就行了。
