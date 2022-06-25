@@ -35,11 +35,7 @@ export const mixTheme = ({
       Layout: path.resolve(__dirname, '../client/layouts/Layout.vue'),
       404: path.resolve(__dirname, '../client/layouts/404.vue'),
     },
-    clientAppEnhanceFiles: path.resolve(
-      __dirname,
-      '../client/clientAppEnhance.js'
-    ),
-    clientAppSetupFiles: path.resolve(__dirname, '../client/clientAppSetup.js'),
+    clientConfigFile: path.resolve(__dirname, '../client/config.js'),
 
     extendsPage: (page: Page<Partial<MixThemePageData>>) => {
       // save relative file path into page data to generate edit link
