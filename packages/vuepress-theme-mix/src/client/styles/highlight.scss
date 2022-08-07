@@ -9,7 +9,7 @@ code[class*='language-'],
 pre.shiki {
   background: none;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 1em;
+  font-size: 0.85em;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -65,7 +65,7 @@ div[class*='language-'] {
     z-index: 3;
     top: 0.8em;
     right: 1em;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
 
   &::after {
@@ -96,7 +96,7 @@ div[class*='language-'] {
     top: 0;
     left: 0;
     width: 100%;
-    line-height: 1.4;
+    line-height: 1.248;
 
     .highlight-line {
       background-color: var(--highlight-line-bg-color);
@@ -125,7 +125,7 @@ div[class*='language-'] {
         left: 0;
         top: 0;
         display: block;
-        width: 3rem;
+        width: 2.6rem;
         height: 100%;
       }
     }
@@ -133,11 +133,13 @@ div[class*='language-'] {
     .line-numbers {
       position: absolute;
       top: 0;
-      width: 3rem;
+      width: 2.6rem;
       text-align: center;
       color: #908f8f;
       padding-top: 2.2rem;
+      font-size: 0.85em;
       line-height: 1.4;
+      counter-reset: line-number;
 
       br {
         user-select: none;
@@ -147,8 +149,12 @@ div[class*='language-'] {
         position: relative;
         z-index: 3;
         user-select: none;
-        font-size: 0.85em;
-        line-height: 0;
+
+        &::before {
+          counter-increment: line-number;
+          content: counter(line-number);
+          font-size: 0.85em;
+        }
       }
     }
   }
