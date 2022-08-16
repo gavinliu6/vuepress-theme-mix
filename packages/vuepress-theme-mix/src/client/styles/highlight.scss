@@ -9,7 +9,6 @@ code[class*='language-'],
 pre.shiki {
   background: none;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 0.85em;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -95,10 +94,9 @@ div[class*='language-'] {
   .highlight-lines {
     user-select: none;
     position: absolute;
-    top: 2.2rem;
+    top: 2.25rem;
     left: 0;
     width: 100%;
-    font-size: 0.85em;
     line-height: 1.4;
 
     .highlight-line {
@@ -137,7 +135,6 @@ div[class*='language-'] {
       text-align: center;
       color: #908f8f;
       padding: 2.2rem 0.5rem 1rem 0.5rem;
-      font-size: 0.85em;
       line-height: 1.4;
       counter-reset: line-number;
 
