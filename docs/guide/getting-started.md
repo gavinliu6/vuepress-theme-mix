@@ -6,7 +6,7 @@
 
 - [Yarn 1 (Classic)](https://classic.yarnpkg.com/en/docs/getting-started) is recommended.
 
-- Compatible with VuePress v2.0.0-beta.48
+- Compatible with VuePress v2.0.0-beta.49
 
 ## Manual Installation
 

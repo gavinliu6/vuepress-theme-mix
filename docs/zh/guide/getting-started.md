@@ -6,7 +6,7 @@
 
 - 推荐使用 [Yarn 1 (Classic)](https://classic.yarnpkg.com/en/docs/getting-started)
 
-- 兼容 VuePress v2.0.0-beta.48
+- 兼容 VuePress v2.0.0-beta.49
 
 ## 手动安装
 
