@@ -2,7 +2,7 @@
 
 [![npm](https://badgen.net/npm/v/vuepress-theme-mix/next)](https://www.npmjs.com/package/vuepress-theme-mix)
 [![](https://img.shields.io/badge/vuepress-next-blue)](https://v2.vuepress.vuejs.org)
-[![GitHub license](https://img.shields.io/github/license/gavinliu6/vuepress-theme-mix)](https://github.com/gavinliu6/vuepress-theme-mix)
+[![GitHub license](https://img.shields.io/github/license/gavinliu6/vuepress-theme-mix)](https://github.com/gavinliu6/vuepress-theme-mix/blob/main/LICENSE)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1c7f6ca5-685b-463c-ab12-66b4d89c2eb7/deploy-status)](https://app.netlify.com/sites/vuepress-theme-mix/deploys)
 [![npm](https://img.shields.io/npm/dt/vuepress-theme-mix)](https://www.npmjs.com/package/vuepress-theme-mix)
 
