@@ -142,7 +142,8 @@
     .custom-container-title,
     .custom-container-title > svg,
     .custom-container-title > svg *,
-    a
+    a,
+    pre *
   ) {
   @apply !text-muted;
 }

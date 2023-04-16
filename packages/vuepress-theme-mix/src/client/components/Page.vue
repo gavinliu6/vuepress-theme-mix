@@ -6,10 +6,16 @@ import { pageData } from '@vuepress/client'
 import { clsx } from 'clsx'
 import { ref } from 'vue'
 
-import { useActiveAnchor, useThemeLocaleData } from '../composables/index.js'
+import {
+  useActiveAnchor,
+  useSidebarItems,
+  useThemeLocaleData,
+} from '../composables/index.js'
 import { shouldShowPageToc } from '../utils/index.js'
 
 const themeLocale = useThemeLocaleData()
+
+const sidebarItems = useSidebarItems()
 
 const container = ref()
 const marker = ref()
@@ -21,8 +27,20 @@ if (shouldShowPageToc.value) {
 
 <template>
   <main>
-    <div :class="clsx('tablet:pt-16', 'tablet:pl-80')">
-      <div :class="clsx('flex p-6')">
+    <div
+      :class="clsx('tablet:pt-16', sidebarItems.length > 0 && 'tablet:pl-80')"
+    >
+      <div
+        :class="
+          clsx(
+            'flex p-6',
+            sidebarItems.length === 0 && 'mx-auto max-w-4xl',
+            sidebarItems.length === 0 &&
+              shouldShowPageToc &&
+              'mx-auto max-w-6xl'
+          )
+        "
+      >
         <div
           :class="
             clsx(

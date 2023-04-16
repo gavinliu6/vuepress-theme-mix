@@ -91,7 +91,7 @@ const onBeforeLeave = scrollPromise.pending
         @click="toggleSidebar(false)"
       />
       <Sidebar
-        v-if="!frontmatter.home"
+        v-if="!frontmatter.home && sidebarItems.length > 0"
         :class="
           clsx(
             sidebarItems.length &&
