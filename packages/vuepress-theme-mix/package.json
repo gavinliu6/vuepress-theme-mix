@@ -32,7 +32,6 @@
     "style": "tailwindcss -i src/client/styles/index.css -o lib/client/styles/index.css"
   },
   "dependencies": {
-    "@tabler/icons-vue": "^2.16.0",
     "@vuepress/client": "2.0.0-beta.61",
     "@vuepress/core": "2.0.0-beta.61",
     "@vuepress/plugin-container": "2.0.0-beta.61",

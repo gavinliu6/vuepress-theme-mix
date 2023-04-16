@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { IconArrowLeft, IconArrowRight } from '@tabler/icons-vue'
 import AutoLink from '@theme/AutoLink.vue'
 import { usePageFrontmatter } from '@vuepress/client'
 import { isPlainObject, isString } from '@vuepress/shared'
@@ -97,7 +96,22 @@ const nextNavLink = computed(() => {
   >
     <p>
       <span v-if="prevNavLink" class="inline-flex items-center space-x-1">
-        <IconArrowLeft :size="16" :stroke-width="1.5" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M5 12l14 0"></path>
+          <path d="M5 12l6 6"></path>
+          <path d="M5 12l6 -6"></path>
+        </svg>
         <AutoLink :item="prevNavLink" class="text-theme no-underline" />
       </span>
 
@@ -106,7 +120,22 @@ const nextNavLink = computed(() => {
         class="float-right inline-flex items-center space-x-1 after:clear-both"
       >
         <AutoLink :item="nextNavLink" class="text-theme no-underline" />
-        <IconArrowRight :size="16" :stroke-width="1.5" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M5 12l14 0"></path>
+          <path d="M13 18l6 -6"></path>
+          <path d="M13 6l6 6"></path>
+        </svg>
       </span>
     </p>
   </nav>

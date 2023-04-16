@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { IconLanguage } from '@tabler/icons-vue'
 import AutoLink from '@theme/AutoLink.vue'
 import NavbarDropdown from '@theme/NavbarDropdown.vue'
 import { useRouteLocale, useSiteLocaleData } from '@vuepress/client'
@@ -85,7 +84,24 @@ const navbarSelectLanguage = computed<ResolvedNavbarItem | null>(() => {
         class="text-muted hover:text-default flex h-16 items-center"
       >
         <span class="inline-block">
-          <IconLanguage :size="18" stroke-width="1.5" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M4 5h7"></path>
+            <path d="M9 3v2c0 4.418 -2.239 8 -5 8"></path>
+            <path d="M5 9c0 2.144 2.952 3.908 6.7 4"></path>
+            <path d="M12 20l4 -9l4 9"></path>
+            <path d="M19.1 18h-6.2"></path>
+          </svg>
         </span>
       </button>
     </NavbarDropdown>

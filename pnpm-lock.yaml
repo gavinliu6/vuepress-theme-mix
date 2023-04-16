@@ -121,9 +121,6 @@ importers:
 
   packages/vuepress-theme-mix:
     dependencies:
-      '@tabler/icons-vue':
-        specifier: ^2.16.0
-        version: 2.16.0(vue@3.2.47)
       '@vuepress/client':
         specifier: 2.0.0-beta.61
         version: 2.0.0-beta.61
@@ -927,19 +924,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
-
-  /@tabler/icons-vue@2.16.0(vue@3.2.47):
-    resolution: {integrity: sha512-C+iRsZ7CsBwSVBj4h6KF2SXxRdvAWaF+yaZH56mrd5FpLbKiM8ABhswchjWJZ1w4FrERUiFQIMMkrhxozuTLyw==}
-    peerDependencies:
-      vue: '>=3.0.1'
-    dependencies:
-      '@tabler/icons': 2.16.0
-      vue: 3.2.47
-    dev: false
-
-  /@tabler/icons@2.16.0:
-    resolution: {integrity: sha512-1kaPH5APIWGtXe0W0eQ9g4MdfaQJ2gh95TAa94lNAqRR0JeC3fkD0yXGCcUiNK4GnGDv3UtPSCd3dbdKTe1b2A==}
-    dev: false
 
   /@tailwindcss/typography@0.5.9(tailwindcss@3.3.1):
     resolution: {integrity: sha512-t8Sg3DyynFysV9f4JDOVISGsjazNb48AeIYQwcL+Bsq5uf4RYL75C1giZ43KISjeDGBaTN3Kxh7Xj/vRSMJUUg==}
