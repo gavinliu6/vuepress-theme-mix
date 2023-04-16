@@ -1,12 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
-  "references": [
-    {
-      "path": "./packages/@vuepress-theme-mix/vuepress-plugin-back-top/tsconfig.build.json"
-    },
-    {
-      "path": "./packages/vuepress-theme-mix/tsconfig.build.json"
+  "compilerOptions": {
+    "paths": {
+      "vuepress-theme-mix": ["./packages/vuepress-theme-mix/src"]
     }
-  ],
-  "files": []
+  },
+  "include": ["**/.vuepress/**/*", "packages/**/*"],
+  "exclude": ["node_modules", ".temp", "lib", "dist"]
 }

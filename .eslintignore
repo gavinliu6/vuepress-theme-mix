@@ -1,7 +1,7 @@
-node_modules/
-.temp/
-lib/
-dist/
 !.vuepress/
 !.*.js
-/public/
+.cache/
+.temp/
+node_modules/
+lib/
+dist/

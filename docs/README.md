@@ -1,49 +1,38 @@
 ---
 home: true
-title: Home
-heroImage: /images/hero.png
+heroText: 'VuePress Theme Mix'
+tagline: A VuePress 2 Theme for Crafting beautiful Documents or Notes
 actions:
   - text: Getting Started
     link: /guide/getting-started.html
     type: primary
-  - text: Introduction
-    link: /guide/
+  - text: Open on GitHub
+    link: https://github.com/gavinliu6/vuepress-theme-mix
     type: secondary
-features:
-  - title: For VuePress 2
-    details: A new theme built for VuePress 2 which is powered by Vue 3, with support for Vite.
-  - title: Elegant and Simple
-    details: Be practical, not including showy features, and keeping elegant and simple.
-  - title: Dark Mode
-    details: Supporting dark mode, which enhances the reading experience in a dark environment.
 footer: MIT Licensed | Copyright © 2021-present Gavin Liu
 ---
 
-## 🚀 A Quick Start
+<p class="badges">
+  <a href="https://www.npmjs.com/package/vuepress-theme-mix" target="_blank" rel="noopener noreferrer"><img src="https://badgen.net/npm/v/vuepress-theme-mix/latest" alt="npm" ></a>{{ ' ' }}
+  <a href="https://v2.vuepress.vuejs.org/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/vuepress-v2.0.0--beta.61-3eaf7e" alt="vuepress@next" /></a>{{ ' ' }}
+  <a href="https://github.com/gavinliu6/vuepress-theme-mix" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/github/license/gavinliu6/vuepress-theme-mix" alt="GitHub license" ></a>{{ ' ' }}
+  <a href="https://app.netlify.com/sites/vuepress-theme-mix/deploys" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/1c7f6ca5-685b-463c-ab12-66b4d89c2eb7/deploy-status" alt="Netlify Status" ></a>{{ ' ' }}
+  <a href="https://www.npmjs.com/package/vuepress-theme-mix" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/dt/vuepress-theme-mix" alt="npm" ></a>
+</p>
 
-First of all, you need to install VuePress Theme Mix in your VuePress 2 project by running:
+### Showcases
 
-```sh:no-line-numbers
-yarn add -D vuepress-theme-mix@latest
-```
+> If you use this theme and your site has been deployed on the public network, you can display your site here by [editing this page](https://github.com/gavinliu6/vuepress-theme-mix/edit/main/docs/README.md) on GitHub, or you can <a href="mailto:hello@gavinliu.me">contact the author</a> directly, and the author will add it on his behalf.
 
-And then setting the theme in `docs/.vuepress/config.ts` file:
+<style scoped>
+  .badges {
+    text-align: center;
+  }
 
-```ts{9-11}:no-line-numbers
-// docs/.vuepress/config.ts
-import { defineUserConfig } from 'vuepress'
-import { mixTheme } from 'vuepress-theme-mix'
-
-export default defineUserConfig({
-  // ……
-
-  // Theme Config
-  theme: mixTheme({
-    // ……
-  }),
-
-  // ……
-})
-```
-
-Finally, you are ready to create content as described in the documentation. :beers:
+  .badges a {
+    border: none !important;
+  }
+  .badges img {
+    display: inline-block;
+  }
+</style>

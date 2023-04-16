@@ -1,38 +1,24 @@
-<template>
-  <nav v-if="prevNavLink || nextNavLink" class="page-nav">
-    <div class="inner">
-      <span v-if="prevNavLink" class="prev">
-        ←
-        <NavLink :item="prevNavLink" />
-      </span>
-
-      <span v-if="nextNavLink" class="next">
-        <NavLink :item="nextNavLink" />
-        →
-      </span>
-    </div>
-  </nav>
-</template>
-
-<script lang="ts">
-import { computed, defineComponent } from 'vue'
-import { useRoute } from 'vue-router'
+<script setup lang="ts">
+import { IconArrowLeft, IconArrowRight } from '@tabler/icons-vue'
+import AutoLink from '@theme/AutoLink.vue'
 import { usePageFrontmatter } from '@vuepress/client'
 import { isPlainObject, isString } from '@vuepress/shared'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
 import type {
   MixThemeNormalPageFrontmatter,
-  NavLink as NavLinkType,
+  NavLink,
   ResolvedSidebarItem,
-} from '../../shared'
-import { useNavLink, useSidebarItems } from '../composables'
-import NavLink from './NavLink.vue'
+} from '../../shared/index.js'
+import { useNavLink, useSidebarItems } from '../composables/index.js'
 
 /**
  * Resolve `prev` or `next` config from frontmatter
  */
 const resolveFromFrontmatterConfig = (
   conf: unknown
-): null | false | NavLinkType => {
+): null | false | NavLink => {
   if (conf === false) {
     return null
   }
@@ -41,7 +27,7 @@ const resolveFromFrontmatterConfig = (
     return useNavLink(conf)
   }
 
-  if (isPlainObject<NavLinkType>(conf)) {
+  if (isPlainObject<NavLink>(conf)) {
     return conf
   }
 
@@ -55,72 +41,73 @@ const resolveFromSidebarItems = (
   sidebarItems: ResolvedSidebarItem[],
   currentPath: string,
   offset: number
-): null | NavLinkType => {
-  const index = sidebarItems.findIndex((item) => item.link === currentPath)
+): null | NavLink => {
+  const index = sidebarItems.findIndex(item => item.link === currentPath)
   if (index !== -1) {
     const targetItem = sidebarItems[index + offset]
     if (!targetItem?.link) {
       return null
     }
-    return targetItem as NavLinkType
+    return targetItem as NavLink
+  }
+
+  for (const item of sidebarItems) {
+    if (item.children) {
+      const childResult = resolveFromSidebarItems(
+        item.children,
+        currentPath,
+        offset
+      )
+      if (childResult) {
+        return childResult
+      }
+    }
   }
 
   return null
 }
 
-export default defineComponent({
-  name: 'PageNav',
+const frontmatter = usePageFrontmatter<MixThemeNormalPageFrontmatter>()
+const sidebarItems = useSidebarItems()
+const route = useRoute()
 
-  components: {
-    NavLink,
-  },
+const prevNavLink = computed(() => {
+  const prevConfig = resolveFromFrontmatterConfig(frontmatter.value.prev)
+  if (prevConfig !== false) {
+    return prevConfig
+  }
 
-  setup() {
-    const frontmatter = usePageFrontmatter<MixThemeNormalPageFrontmatter>()
-    const sidebarItems = useSidebarItems()
-    const route = useRoute()
+  return resolveFromSidebarItems(sidebarItems.value, route.path, -1)
+})
 
-    const flatSidebarItems = computed(() => {
-      const result: ResolvedSidebarItem[] = []
-      const flatten = (input: ResolvedSidebarItem[]): ResolvedSidebarItem[] => {
-        input.map((item) => {
-          if (item.type === 'link' || item.type === 'link-group') {
-            result.push(item)
-          }
+const nextNavLink = computed(() => {
+  const nextConfig = resolveFromFrontmatterConfig(frontmatter.value.next)
+  if (nextConfig !== false) {
+    return nextConfig
+  }
 
-          if (item.type !== 'link') {
-            flatten(item.children)
-          }
-        })
-
-        return result
-      }
-
-      return flatten(sidebarItems.value)
-    })
-
-    const prevNavLink = computed(() => {
-      const prevConfig = resolveFromFrontmatterConfig(frontmatter.value.prev)
-      if (prevConfig !== false) {
-        return prevConfig
-      }
-
-      return resolveFromSidebarItems(flatSidebarItems.value, route.path, -1)
-    })
-
-    const nextNavLink = computed(() => {
-      const nextConfig = resolveFromFrontmatterConfig(frontmatter.value.next)
-      if (nextConfig !== false) {
-        return nextConfig
-      }
-
-      return resolveFromSidebarItems(flatSidebarItems.value, route.path, 1)
-    })
-
-    return {
-      prevNavLink,
-      nextNavLink,
-    }
-  },
+  return resolveFromSidebarItems(sidebarItems.value, route.path, 1)
 })
 </script>
+
+<template>
+  <nav
+    v-if="prevNavLink || nextNavLink"
+    class="border-t-default mt-4 border-t pt-6"
+  >
+    <p>
+      <span v-if="prevNavLink" class="inline-flex items-center space-x-1">
+        <IconArrowLeft :size="16" :stroke-width="1.5" />
+        <AutoLink :item="prevNavLink" class="text-theme no-underline" />
+      </span>
+
+      <span
+        v-if="nextNavLink"
+        class="float-right inline-flex items-center space-x-1 after:clear-both"
+      >
+        <AutoLink :item="nextNavLink" class="text-theme no-underline" />
+        <IconArrowRight :size="16" :stroke-width="1.5" />
+      </span>
+    </p>
+  </nav>
+</template>

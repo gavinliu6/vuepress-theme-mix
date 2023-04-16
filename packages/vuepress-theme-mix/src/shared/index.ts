@@ -1,4 +1,3 @@
-export * from './themeConfig'
-export * from './navbarConfig'
-export * from './sidebarConfig'
-export * from './pageConfig'
+export * from './nav.js'
+export * from './options.js'
+export * from './page.js'

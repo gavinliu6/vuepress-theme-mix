@@ -1,2 +1,3 @@
-export * as navbar from './navbar'
-export * as sidebar from './sidebar'
+export * from './head.js'
+export * from './navbar/index.js'
+export * from './sidebar/index.js'

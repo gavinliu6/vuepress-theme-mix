@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply tablet-reverse:[--scroll-mt:4.5rem] scroll-smooth [--scroll-mt:5.5rem];
+  }
+
+  html,
+  body {
+    @apply bg-default relative min-h-screen transition-colors;
+  }
+
+  body {
+    @apply text-default min-h-screen text-sm;
+  }
+
+  :root {
+    --color-theme: #ff5758;
+
+    --color-text-default: rgb(17, 24, 39);
+    --color-text-muted: rgba(17, 24, 39, 0.75);
+    --color-text-subtle: rgba(17, 24, 39, 0.33);
+    --color-text-tip: #2ce23f;
+    --color-text-warning: #cba408;
+    --color-text-danger: #ff3b10;
+    --color-text-muted-in-code-block: rgba(235, 235, 245, 0.38);
+
+    --color-bg-default: #fff;
+    --color-bg-contrast: #f6f6f7;
+    --color-bg-divider: rgba(15, 23, 42, 0.1);
+    --color-bg-overlay: rgba(0, 0, 0, 0.6);
+    --color-bg-tip: #f6f6f7;
+    --color-bg-warning: #fffeeb;
+    --color-bg-danger: #fff9f8;
+    --color-bg-code-block: #292b30;
+    --color-bg-highlight: rgba(0, 0, 0, 0.5);
+    --color-bg-code-group-bar: #1b1e22;
+
+    --color-border-default: rgba(15, 23, 42, 0.1);
+    --color-border-line-numbers: rgba(202, 212, 234, 0.1);
+  }
+
+  .dark {
+    --color-theme: #ff5758;
+
+    --color-text-default: rgb(209, 213, 219);
+    --color-text-muted: rgba(209, 213, 219, 0.6);
+    --color-text-subtle: rgba(209, 213, 219, 0.38);
+    --color-text-tip: #36b844;
+    --color-text-warning: #ddc45e;
+    --color-text-danger: #ffa692;
+    --color-text-muted-in-code-block: rgba(235, 235, 245, 0.38);
+
+    --color-bg-default: #161618;
+    --color-bg-contrast: #242424;
+    --color-bg-divider: rgba(82, 82, 89, 0.32);
+    --color-bg-overlay: rgba(0, 0, 0, 0.6);
+    --color-bg-tip: #1a1a1a;
+    --color-bg-warning: #1b1500;
+    --color-bg-danger: #1c0301;
+    --color-bg-code-block: #292b30;
+    --color-bg-highlight: rgba(0, 0, 0, 0.5);
+    --color-bg-code-group-bar: #30343b;
+
+    --color-border-default: rgba(82, 82, 89, 0.32);
+    --color-border-line-numbers: rgba(82, 82, 89, 0.32);
+  }
+
+  .navbar-select-language a.router-link-active {
+    @apply text-theme bg-contrast;
+  }
+
+  .md-container .header-anchor {
+    @apply text-theme -ml-[0.87em] !border-none !no-underline opacity-0;
+  }
+
+  .md-container h1 .header-anchor {
+    @apply hidden;
+  }
+
+  .md-container h2:hover .header-anchor,
+  .md-container h3:hover .header-anchor,
+  .md-container h4:hover .header-anchor,
+  .md-container h5:hover .header-anchor,
+  .md-container h6:hover .header-anchor {
+    @apply opacity-100;
+  }
+
+  /**
+   * Inline code
+   */
+  :not(pre) > code {
+    @apply bg-contrast !text-muted inline-flex rounded px-1 py-0.5 align-middle !font-normal;
+  }
+}
+
+/**
+ * fade-slide-y
+ */
+.fade-slide-y-enter-active {
+  transition: all 0.2s ease;
+}
+.fade-slide-y-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.fade-slide-y-enter-from,
+.fade-slide-y-leave-to {
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+/**
+ * plugins
+ */
+#nprogress {
+  --nprogress-color: var(--color-theme);
+}
+
+.DocSearch {
+  --docsearch-primary-color: var(--color-theme);
+  --docsearch-highlight-color: var(--color-theme);
+  --docsearch-searchbox-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --docsearch-searchbox-background: var(--color-bg-contrast);
+  --docsearch-text-color: var(--color-text-muted);
+  --docsearch-searchbox-focus-background: var(--color-bg-contrast);
+  --docsearch-modal-background: var(--color-bg-default);
+  --docsearch-footer-background: var(--color-bg-default);
+  --docsearch-modal-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --docsearch-footer-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --docsearch-hit-background: var(--color-bg-contrast);
+  --docsearch-hit-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.custom-container {
+  @apply my-[1.25em] rounded-md p-[1em];
+}
+
+.custom-container
+  *:not(
+    .custom-container-title,
+    .custom-container-title > svg,
+    .custom-container-title > svg *,
+    a
+  ) {
+  @apply !text-muted;
+}
+
+.custom-container > :last-child {
+  @apply mb-0 mt-2;
+}
+
+.custom-container .custom-container-title {
+  @apply my-0 flex items-center;
+}
+
+.custom-container .custom-container-title > svg {
+  @apply mr-2;
+}
+
+.custom-container.tip {
+  @apply bg-tip;
+}
+
+.custom-container.tip .custom-container-title {
+  @apply text-tip;
+}
+
+.custom-container.warning {
+  @apply bg-warning;
+}
+
+.custom-container.warning .custom-container-title {
+  @apply text-warning;
+}
+
+.custom-container.danger {
+  @apply bg-danger;
+}
+
+.custom-container.danger .custom-container-title {
+  @apply text-danger;
+}
+
+.custom-container.details {
+  @apply bg-tip;
+}
+
+.code-group pre {
+  @apply !mt-0 !rounded-b-lg !rounded-t-none;
+}
+
+div[class*='language-'] {
+  @apply bg-code-block relative rounded-md;
+}
+
+div[class*='language-']:before {
+  content: attr(data-ext);
+  position: absolute;
+  top: 0.25em;
+  right: 1em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-muted-in-code-block);
+  z-index: 1;
+}
+
+div[class*='language-'] pre {
+  @apply relative z-10 !bg-transparent;
+}
+
+div[class*='language-'].line-numbers-mode pre {
+  @apply pl-11;
+}
+
+div[class*='language-'].line-numbers-mode .line-numbers {
+  @apply border-r-line-numbers absolute bottom-0 left-0 top-0 w-8 border-r px-2 pt-4 text-center;
+  counter-reset: line-number;
+}
+
+div[class*='language-'].line-numbers-mode .line-numbers .line-number {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 85%;
+  line-height: 1.45;
+}
+
+div[class*='language-'].line-numbers-mode .line-numbers .line-number:before {
+  counter-increment: line-number;
+  content: counter(line-number);
+  color: var(--color-text-muted-in-code-block);
+}
+
+div[class*='language-'] .highlight-lines {
+  @apply absolute left-0 top-0 w-full select-none pt-4;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 85%;
+  line-height: 1.45;
+}
+
+div[class*='language-'] .highlight-lines .highlight-line {
+  @apply bg-highlight;
+}

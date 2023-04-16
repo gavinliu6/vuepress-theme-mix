@@ -1,30 +1,20 @@
-import { h, computed, onMounted, provide, ref } from 'vue'
-import { defineClientConfig, usePageFrontmatter } from '@vuepress/client'
-import CodeGroup from './components/global/CodeGroup'
-import CodeGroupItem from './components/global/CodeGroupItem.vue'
-import CodePenSnippet from './components/global/CodePenSnippet.vue'
-import OutboundLink from './components/global/OutboundLink.vue'
-import {
-  resolveSidebarItems,
-  sidebarItemsSymbol,
-  themeModeSymbol,
-  useThemeLocaleData,
-  useScrollPromise,
-} from './composables'
-import type { MixThemeNormalPageFrontmatter } from '../shared'
+import './styles/index.css'
 
-import './styles/index.scss'
+import { defineClientConfig } from '@vuepress/client'
+import { h } from 'vue'
+
+import { CodeGroup, CodeGroupItem } from './components/global/index.js'
+import { setupSidebarItems, useScrollPromise } from './composables/index.js'
+import Layout from './layouts/Layout.vue'
 
 export default defineClientConfig({
+  layouts: {
+    Layout,
+  },
+
   enhance({ app, router }) {
     app.component('CodeGroup', CodeGroup)
     app.component('CodeGroupItem', CodeGroupItem)
-    app.component('CodePenSnippet', CodePenSnippet)
-
-    // unregister the built-in `<OutboundLink>` to avoid warning
-    delete app._context.components.OutboundLink
-    // override the built-in `<OutboundLink>`
-    app.component('OutboundLink', OutboundLink)
 
     // compat with @vuepress/plugin-docsearch and @vuepress/plugin-search
     app.component('NavbarSearch', () => {
@@ -37,6 +27,7 @@ export default defineClientConfig({
     })
 
     // handle scrollBehavior with transition
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const scrollBehavior = router.options.scrollBehavior!
     router.options.scrollBehavior = async (...args) => {
       await useScrollPromise().wait()
@@ -45,40 +36,6 @@ export default defineClientConfig({
   },
 
   setup() {
-    const themeLocale = useThemeLocaleData()
-
-    // dark theme supported
-    const themeMode = ref(themeLocale.value.mode ?? 'auto')
-
-    onMounted(() => {
-      if (themeMode.value === 'auto') {
-        const media = window.matchMedia('(prefers-color-scheme: dark)')
-        themeMode.value = localStorage.theme ?? (media.matches ? 'dark' : 'light')
-
-        window
-          .matchMedia('(prefers-color-scheme: dark)')
-          .addEventListener('change', (e) => {
-            if (e.matches) {
-              themeMode.value = 'dark'
-            } else {
-              themeMode.value = 'light'
-            }
-            document.documentElement.dataset.theme = themeMode.value
-            localStorage.setItem('theme', themeMode.value)
-          })
-      }
-
-      document.documentElement.dataset.theme = themeMode.value
-    })
-
-    provide(themeModeSymbol, themeMode)
-
-    // we need to access sidebar items in multiple components
-    // so we make it global computed
-    const frontmatter = usePageFrontmatter<MixThemeNormalPageFrontmatter>()
-    const sidebarItems = computed(() =>
-      resolveSidebarItems(frontmatter.value, themeLocale.value)
-    )
-    provide(sidebarItemsSymbol, sidebarItems)
+    setupSidebarItems()
   },
 })

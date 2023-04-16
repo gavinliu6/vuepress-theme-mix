@@ -1,47 +1,22 @@
-<template>
-  <aside class="sidebar">
-    <Scrollbar>
-      <NavbarLinks />
+<script setup lang="ts">
+import SidebarItems from '@theme/SidebarItems.vue'
+import { clsx } from 'clsx'
+</script>
 
-      <div class="sidebar-inner">
-        <ul class="sidebar-items">
-          <template v-for="sidebarItem in sidebarItems" :key="sidebarItem.link">
-            <SidebarItemLink
-              v-if="sidebarItem.type === 'link'"
-              :item="sidebarItem"
-            />
-            <SidebarItemGroup v-else :item="sidebarItem" />
-          </template>
-        </ul>
-      </div>
-    </Scrollbar>
+<template>
+  <aside
+    id="sidebar"
+    :class="
+      clsx(
+        'fixed bottom-0 left-[max(0px,calc(50%-45rem))] top-16',
+        'tablet-reverse:top-0 tablet-reverse:opacity-0 tablet-reverse:-translate-x-full',
+        'bg-default w-80 p-6',
+        'overflow-y-auto overflow-x-hidden',
+        'transition-[opacity,transform] duration-300',
+        'z-30'
+      )
+    "
+  >
+    <SidebarItems />
   </aside>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { useSidebarItems } from '../composables'
-import Scrollbar from './Scrollbar.vue'
-import NavbarLinks from './NavbarLinks.vue'
-import SidebarItemLink from './SidebarItemLink.vue'
-import SidebarItemGroup from './SidebarItemGroup.vue'
-
-export default defineComponent({
-  name: 'Sidebar',
-
-  components: {
-    Scrollbar,
-    NavbarLinks,
-    SidebarItemLink,
-    SidebarItemGroup,
-  },
-
-  setup() {
-    const sidebarItems = useSidebarItems()
-
-    return {
-      sidebarItems,
-    }
-  },
-})
-</script>

@@ -1,6 +1,6 @@
-import { useRouter } from 'vue-router'
-import type { Router } from 'vue-router'
 import { isFunction, isString } from '@vuepress/shared'
+import type { Router } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 /**
  * Resolve a route with redirection

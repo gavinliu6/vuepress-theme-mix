@@ -1,8 +1,14 @@
 {
   "extends": "../../tsconfig.base.json",
-  "references": [
-    { "path": "./tsconfig.esm.json" },
-    { "path": "./tsconfig.cjs.json" }
-  ],
-  "files": []
+  "compilerOptions": {
+    "composite": true,
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "baseUrl": ".",
+    "paths": {
+      "@theme/*": ["./src/client/components/*"]
+    },
+    "types": ["@vuepress/client/types"]
+  },
+  "include": ["./src"]
 }

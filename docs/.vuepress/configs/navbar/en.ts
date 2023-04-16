@@ -1,31 +1,23 @@
 import type { NavbarConfig } from 'vuepress-theme-mix'
 
-export const en: NavbarConfig = [
-  {
-    text: 'Home',
-    link: '/',
-  },
+import { version } from '../meta.js'
+
+export const navbarEn: NavbarConfig = [
   {
     text: 'Guide',
     link: '/guide/',
   },
   {
-    text: 'Reference',
+    text: 'VuePress 2',
+    link: 'https://v2.vuepress.vuejs.org/',
+  },
+  {
+    text: `v${version}`,
     children: [
-      '/configuration/',
-      '/plugins.md',
       {
         text: 'Changelog',
         link: 'https://github.com/gavinliu6/vuepress-theme-mix/blob/main/CHANGELOG.md',
       },
     ],
-  },
-  {
-    text: 'VuePress',
-    link: 'https://v2.vuepress.vuejs.org/',
-  },
-  {
-    text: 'GitHub',
-    link: 'https://github.com/gavinliu6/vuepress-theme-mix',
   },
 ]

@@ -1,66 +1,95 @@
-import { viteBundler } from '@vuepress/bundler-vite'
-import { docsearchPlugin } from '@vuepress/plugin-docsearch'
-import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
-import { defineUserConfig } from 'vuepress'
-import { navbar, sidebar } from './configs'
-import { mixTheme } from 'vuepress-theme-mix'
+import process from 'node:process'
 
-const isProd = process.env.NODE_ENV === 'production'
+import { viteBundler } from '@vuepress/bundler-vite'
+import { webpackBundler } from '@vuepress/bundler-webpack'
+import { defineUserConfig } from '@vuepress/cli'
+import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+import mixTheme from 'vuepress-theme-mix'
+
+import {
+  head,
+  navbarEn,
+  navbarZh,
+  sidebarEn,
+  sidebarZh,
+} from './configs/index.js'
 
 export default defineUserConfig({
-  // Site Config
+  // set site base to default value
   base: '/',
 
+  // site-level locales config
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'VuePress Mix Theme', // for broswer tabs
-      description: 'A VuePress 2 theme with a mix of features',
+      title: 'VuePress Theme Mix',
+      description: 'A mash-up theme for VuePress 2',
     },
     '/zh/': {
       lang: 'zh-CN',
-      title: 'VuePress Mix Theme',
-      description: '一个汇聚多个特性的 VuePress 2 主题',
+      title: 'VuePress Theme Mix',
+      description: '一款适用于 VuePress 2 的混搭主题',
     },
   },
 
-  bundler: viteBundler(),
+  // extra tags in `<head>`
+  head,
 
-  // Theme Config
+  // specify bundler via environment variable
+  bundler:
+    process.env.DOCS_BUNDLER === 'webpack' ? webpackBundler() : viteBundler(),
+
+  // markdown config
+  markdown: {
+    code: {
+      lineNumbers: false,
+    },
+  },
+
   theme: mixTheme({
-    logo: '/images/logo.png',
-    title: 'VuePress Mix Theme', // for navbar
-    docsRepo: 'gavinliu6/vuepress-theme-mix',
-    docsDir: 'docs',
-    editLink: true,
-    lastUpdated: true,
+    editLink:
+      'https://github.com/gavinliu6/vuepress-theme-mix/edit/main/docs/:path',
 
-    locales: {
-      '/': {
-        navbar: navbar.en,
-        sidebar: sidebar.en,
+    socialLinks: [
+      {
+        icon: 'github',
+        link: 'https://github.com/gavinliu6/vuepress-theme-mix',
+        ariaLabel: 'github',
       },
+    ],
+
+    sidebarDepth: 0,
+
+    // theme-level locales config
+    locales: {
+      /**
+       * English locale config
+       *
+       * As the default locale of @vuepress/theme-default is English,
+       * we don't need to set all of the locale fields
+       */
+      '/': {
+        navbar: navbarEn,
+        sidebar: sidebarEn,
+      },
+
+      /**
+       * Chinese locale config
+       */
       '/zh/': {
-        home: '/zh/',
-        navbar: navbar.zh,
-        sidebar: sidebar.zh,
-        selectLanguageText: '选择语言',
+        navbar: navbarZh,
+        sidebar: sidebarZh,
         selectLanguageAriaLabel: '选择语言',
         selectLanguageName: '简体中文',
-        toggleThemeModeAriaLabel: '切换主题',
-        lastUpdatedText: '最后更新',
+        tocTitle: '本页目录',
+        editLinkText: '在 GitHub 上编辑本页',
+        lastUpdatedText: '最近更新时间',
+        contributorsText: '贡献者',
       },
-    },
-
-    themePlugins: {
-      git: isProd,
     },
   }),
 
-  // Directory Config
-  dest: 'public',
-
-  // Plugins Config
+  // use plugins
   plugins: [
     docsearchPlugin({
       appId: 'YEDIHRHK0I',
@@ -74,10 +103,6 @@ export default defineUserConfig({
           placeholder: '搜索文档',
         },
       },
-    }),
-    googleAnalyticsPlugin({
-      // we have multiple deployments, which would use different id
-      id: process.env.GA_ID,
     }),
   ],
 })

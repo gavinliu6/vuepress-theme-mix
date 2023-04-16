@@ -1,121 +1,117 @@
-<template>
-  <div class="theme-mix" :class="containerClass">
-    <Navbar
-      v-if="shouldShowNavbar"
-      @toggle-sidebar="toggleSidebar"
-      @toggle-theme-mode="toggleThemeMode"
-    />
-    <ToggleSidebarButton v-else @toggle="toggleSidebar" />
-
-    <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
-    <div class="theme-layout">
-      <Sidebar />
-
-      <Home v-if="frontmatter.home" />
-
-      <Page v-else :key="page.path" />
-    </div>
-  </div>
-</template>
-
-<script lang="ts">
-import {
-  computed,
-  defineComponent,
-  onMounted,
-  onUnmounted,
-  ref,
-} from 'vue'
-import { useRouter } from 'vue-router'
+<script setup lang="ts">
+import Home from '@theme/Home.vue'
+import LocalNav from '@theme/LocalNav.vue'
+import Navbar from '@theme/Navbar.vue'
+import NavbarScreen from '@theme/NavbarScreen.vue'
+import Page from '@theme/Page.vue'
+import Sidebar from '@theme/Sidebar.vue'
 import { usePageData, usePageFrontmatter } from '@vuepress/client'
-import Navbar from '../components/Navbar.vue'
-import ToggleSidebarButton from '../components/ToggleSidebarButton.vue'
-import Sidebar from '../components/Sidebar.vue'
-import Home from '../components/Home.vue'
-import Page from '../components/Page.vue'
+import { clsx } from 'clsx'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+import type { MixThemePageFrontmatter } from '../../shared/index.js'
 import {
   useScrollPromise,
   useSidebarItems,
   useThemeLocaleData,
-  useThemeMode,
-} from '../composables'
-import type { MixThemePageFrontmatter } from '../../shared'
+} from '../composables/index.js'
 
-export default defineComponent({
-  name: 'Layout',
+const themeLocale = useThemeLocaleData()
+const page = usePageData()
+const frontmatter = usePageFrontmatter<MixThemePageFrontmatter>()
 
-  components: {
-    Navbar,
-    ToggleSidebarButton,
-    Sidebar,
-    Home,
-    Page,
-  },
+const isScreenOpen = ref(false)
+const toggleScreen = (to?: boolean): void => {
+  if (to === true || !isScreenOpen.value) {
+    document.body.classList.add('tablet-reverse:overflow-y-hidden')
+  }
+  if (to === false || isScreenOpen.value) {
+    document.body.classList.remove('tablet-reverse:overflow-y-hidden')
+  }
 
-  setup() {
-    const page = usePageData()
-    const frontmatter = usePageFrontmatter<MixThemePageFrontmatter>()
-    const themeLocaleData = useThemeLocaleData()
+  isScreenOpen.value = typeof to === 'boolean' ? to : !isScreenOpen.value
+}
 
-    // navbar
-    const shouldShowNavbar = computed(
-      () =>
-        frontmatter.value.navbar !== false &&
-        themeLocaleData.value.navbar !== false
-    )
+// sidebar
+const sidebarItems = useSidebarItems()
+const isSidebarOpen = ref(false)
+const toggleSidebar = (to?: boolean): void => {
+  if (to === true || !isSidebarOpen.value) {
+    document.body.classList.add('tablet-reverse:overflow-y-hidden')
+  }
+  if (to === false || isSidebarOpen.value) {
+    document.body.classList.remove('tablet-reverse:overflow-y-hidden')
+  }
+  isSidebarOpen.value = typeof to === 'boolean' ? to : !isSidebarOpen.value
+}
 
-    // sidebar
-    const sidebarItems = useSidebarItems()
-    const isSidebarOpen = ref(false)
-    const toggleSidebar = (to?: boolean): void => {
-      isSidebarOpen.value = typeof to === 'boolean' ? to : !isSidebarOpen.value
-    }
-
-    // classes
-    const containerClass = computed(() => ({
-      'no-sidebar': !sidebarItems.value.length,
-      'sidebar-open': isSidebarOpen.value,
-      'with-navbar': shouldShowNavbar.value,
-    }))
-
-    // close sidebar after navigation
-    let unregisterRouterHook
-    onMounted(() => {
-      const router = useRouter()
-      unregisterRouterHook = router.afterEach(() => {
-        toggleSidebar(false)
-      })
-    })
-    onUnmounted(() => {
-      unregisterRouterHook()
-    })
-
-    // handle scrollBehavior with transition
-    const scrollPromise = useScrollPromise()
-    const onBeforeEnter = scrollPromise.resolve
-    const onBeforeLeave = scrollPromise.pending
-
-    // toggle theme mode
-    const themeMode = useThemeMode()
-    const toggleThemeMode = (): void => {
-      themeMode.value === 'light'
-        ? (themeMode.value = 'dark')
-        : (themeMode.value = 'light')
-
-      document.documentElement.dataset.theme = themeMode.value
-      localStorage.setItem('theme', themeMode.value)
-    }
-
-    return {
-      page,
-      frontmatter,
-      shouldShowNavbar,
-      toggleSidebar,
-      containerClass,
-      onBeforeEnter,
-      onBeforeLeave,
-      toggleThemeMode,
-    }
-  },
+// close sidebar & screen after navigation
+let unregisterRouterHook
+onMounted(() => {
+  const router = useRouter()
+  unregisterRouterHook = router.afterEach(() => {
+    toggleSidebar(false)
+    toggleScreen(false)
+  })
 })
+onUnmounted(() => {
+  unregisterRouterHook()
+})
+
+// handle scrollBehavior with transition
+const scrollPromise = useScrollPromise()
+const onBeforeEnter = scrollPromise.resolve
+const onBeforeLeave = scrollPromise.pending
 </script>
+
+<template>
+  <div>
+    <div class="max-w-8xl mx-auto">
+      <Navbar
+        v-if="themeLocale.navbar !== false"
+        @toggle-screen="toggleScreen"
+      />
+      <LocalNav
+        v-if="sidebarItems.length"
+        :class="clsx('tablet:hidden')"
+        @toggle-sidebar="toggleSidebar"
+      />
+      <NavbarScreen v-if="isScreenOpen" />
+
+      <div
+        v-if="sidebarItems.length && isSidebarOpen"
+        :class="
+          clsx(
+            'bg-overlay tablet:hidden',
+            'fixed bottom-0 left-0 right-0 top-0',
+            'z-30'
+          )
+        "
+        @click="toggleSidebar(false)"
+      />
+      <Sidebar
+        v-if="!frontmatter.home"
+        :class="
+          clsx(
+            sidebarItems.length &&
+              isSidebarOpen &&
+              '!translate-x-0 !opacity-100 !transition-[opacity,transform] !duration-300'
+          )
+        "
+      />
+
+      <Home v-if="frontmatter.home" />
+
+      <Transition
+        v-else
+        name="fade-slide-y"
+        mode="out-in"
+        @before-enter="onBeforeEnter"
+        @before-leave="onBeforeLeave"
+      >
+        <Page :key="page.path" />
+      </Transition>
+    </div>
+  </div>
+</template>

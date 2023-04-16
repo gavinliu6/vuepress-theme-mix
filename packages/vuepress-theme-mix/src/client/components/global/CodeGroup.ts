@@ -1,12 +1,58 @@
-import { defineComponent, h, ref } from 'vue'
+import { clsx } from 'clsx'
 import type { Component, VNode } from 'vue'
+import { defineComponent, h, onBeforeUpdate, ref } from 'vue'
 
-export default defineComponent({
+export const CodeGroup = defineComponent({
   name: 'CodeGroup',
 
   setup(_, { slots }) {
     // index of current active item
     const activeIndex = ref(-1)
+
+    // refs of the tab buttons
+    const tabRefs = ref<HTMLButtonElement[]>([])
+
+    if (__VUEPRESS_DEV__) {
+      // after removing a code-group-item, we need to clear the ref
+      // of the removed item to avoid issues caused by HMR
+      onBeforeUpdate(() => {
+        tabRefs.value = []
+      })
+    }
+
+    // activate next tab
+    const activateNext = (i = activeIndex.value): void => {
+      if (i < tabRefs.value.length - 1) {
+        activeIndex.value = i + 1
+      } else {
+        activeIndex.value = 0
+      }
+      tabRefs.value[activeIndex.value].focus()
+    }
+
+    // activate previous tab
+    const activatePrev = (i = activeIndex.value): void => {
+      if (i > 0) {
+        activeIndex.value = i - 1
+      } else {
+        activeIndex.value = tabRefs.value.length - 1
+      }
+      tabRefs.value[activeIndex.value].focus()
+    }
+
+    // handle keyboard event
+    const keyboardHandler = (event: KeyboardEvent, i: number): void => {
+      if (event.key === ' ' || event.key === 'Enter') {
+        event.preventDefault()
+        activeIndex.value = i
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault()
+        activateNext(i)
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault()
+        activatePrev(i)
+      }
+    }
 
     return () => {
       // NOTICE: here we put the `slots.default()` inside the render function to make
@@ -15,8 +61,8 @@ export default defineComponent({
 
       // get children code-group-item
       const items = (slots.default?.() || [])
-        .filter((vnode) => (vnode.type as Component).name === 'CodeGroupItem')
-        .map((vnode) => {
+        .filter(vnode => (vnode.type as Component).name === 'CodeGroupItem')
+        .map(vnode => {
           if (vnode.props === null) {
             vnode.props = {}
           }
@@ -28,12 +74,12 @@ export default defineComponent({
         return null
       }
 
-      if (activeIndex.value === -1) {
-        // initial state
+      if (activeIndex.value < 0 || activeIndex.value > items.length - 1) {
+        // if `activeIndex` is invalid
 
         // find the index of the code-group-item with `active` props
         activeIndex.value = items.findIndex(
-          (vnode) => vnode.props.active === '' || vnode.props.active === true
+          vnode => vnode.props.active === '' || vnode.props.active === true
         )
 
         // if there is no `active` props on code-group-item, set the first item active
@@ -41,8 +87,6 @@ export default defineComponent({
           activeIndex.value = 0
         }
       } else {
-        // re-render triggered by modifying `activeIndex` ref
-
         // set the active item
         items.forEach((vnode, i) => {
           vnode.props.active = i === activeIndex.value
@@ -52,28 +96,33 @@ export default defineComponent({
       return h('div', { class: 'code-group' }, [
         h(
           'div',
-          { class: 'code-group__nav' },
+          { class: 'bg-code-group-bar rounded-t-lg -mb-1.5 pb-1.5' },
           h(
-            'ul',
-            { class: 'code-group__ul' },
-            items.map((vnode, i) =>
-              h(
-                'li',
-                { class: 'code-group__li' },
-                h(
-                  'button',
-                  {
-                    class: `code-group__nav-tab${
-                      i === activeIndex.value
-                        ? ' code-group__nav-tab-active'
-                        : ''
-                    }`,
-                    onClick: () => (activeIndex.value = i),
+            'div',
+            { class: 'flex' },
+            items.map((vnode, i) => {
+              const isActive = i === activeIndex.value
+
+              return h(
+                'button',
+                {
+                  ref: element => {
+                    if (element) {
+                      tabRefs.value[i] = element as HTMLButtonElement
+                    }
                   },
-                  vnode.props.title
-                )
+                  class: clsx(
+                    'mx-2 py-2.5 first:ml-4',
+                    isActive ? 'text-white' : 'text-white/70 hover:text-white'
+                  ),
+                  ariaPressed: isActive,
+                  ariaExpanded: isActive,
+                  onClick: () => (activeIndex.value = i),
+                  onKeydown: e => keyboardHandler(e, i),
+                },
+                vnode.props.title
               )
-            )
+            })
           )
         ),
         items,

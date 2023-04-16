@@ -1,49 +1,38 @@
 ---
 home: true
-title: 首页
-heroImage: /images/hero.png
+heroText: 'VuePress Theme Mix'
+tagline: 一款用于制作精美文档或笔记的 VuePress 2 主题
 actions:
   - text: 快速上手
     link: /zh/guide/getting-started.html
     type: primary
-  - text: 主题简介
-    link: /zh/guide/
+  - text: 在 GitHub 中打开
+    link: https://github.com/gavinliu6/vuepress-theme-mix
     type: secondary
-features:
-  - title: 为 2 而来
-    details: 一款专为 VuePress 2 打造的全新主题，由 Vue 3 驱动，支持 Vite 。
-  - title: 优雅简洁
-    details: 坚持实用至上，拒绝花里胡哨的功能堆砌，并保持 UI 的优雅简洁。
-  - title: 暗黑模式
-    details: 本主题支持暗黑模式，提升了暗光环境下的文档阅读体验。
 footer: MIT Licensed | Copyright © 2021-present Gavin Liu
 ---
 
-### 🚀 快速上手
+<p class="badges">
+  <a href="https://www.npmjs.com/package/vuepress-theme-mix" target="_blank" rel="noopener noreferrer"><img src="https://badgen.net/npm/v/vuepress-theme-mix/latest" alt="npm" ></a>{{ ' ' }}
+  <a href="https://v2.vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/vuepress-v2.0.0--beta.61-3eaf7e" alt="vuepress@next" /></a>{{ ' ' }}
+  <a href="https://github.com/gavinliu6/vuepress-theme-mix" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/github/license/gavinliu6/vuepress-theme-mix" alt="GitHub license" ></a>{{ ' ' }}
+  <a href="https://app.netlify.com/sites/vuepress-theme-mix/deploys" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/1c7f6ca5-685b-463c-ab12-66b4d89c2eb7/deploy-status" alt="Netlify Status" ></a>{{ ' ' }}
+  <a href="https://www.npmjs.com/package/vuepress-theme-mix" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/dt/vuepress-theme-mix" alt="npm" ></a>
+</p>
 
-首先，你应该在你现有的某一 VuePress 2 项目中安装 Mix 主题：
+### 使用案例
 
-```sh:no-line-numbers
-yarn add -D vuepress-theme-mix@latest
-```
+> 如果你使用了本主题，并且已经部署在了公网中，那么你可以通过在 GitHub 上 [编辑本页](https://github.com/gavinliu6/vuepress-theme-mix/edit/main/docs/zh/README.md) 来在这里展示你的站点，也可以直接 <a href="mailto:hello@gavinliu.me">联系作者</a>，由作者代为添加。
 
-接着，在 `docs/.vuepress/config.ts` 文件中指定它:
+<style scoped>
+  .badges {
+    text-align: center;
+  }
 
-```ts{9-11}:no-line-numbers
-// docs/.vuepress/config.ts
-import { defineUserConfig } from 'vuepress'
-import { mixTheme } from 'vuepress-theme-mix'
-
-export default defineUserConfig({
-  // ……
-
-  // 主题配置
-  theme: mixTheme({
-    // ……
-  }),
-
-  // ……
-})
-```
-
-最后，你就可以按照文档所述进行内容创作了。:beers:
+  .badges a {
+    border: none !important;
+  }
+  .badges img {
+    display: inline-block;
+  }
+</style>

@@ -1,36 +1,56 @@
 # Getting Started
 
-## Requirements
+> The following is translated from Chinese by ChatGPT.
 
-- [Node.js](https://nodejs.org/en/download/) version >= 14.x (which can be checked by running `node -v`).
+## Installation
 
-- [Yarn 1 (Classic)](https://classic.yarnpkg.com/en/docs/getting-started) is recommended.
+First, execute the following command in your VuePress 2 project to install the theme:
 
-- Compatible with VuePress v2.0.0-beta.49
+:::: code-group
+::: code-group-item npm
 
-## Manual Installation
-
-If you already have a VuePress 2 project, then you just need to install this theme manually and specify it in the configuration file.
-
-```sh
-yarn add -D vuepress-theme-mix@latest
+```bash
+npm install -D vuepress-theme-mix@next
 ```
 
-**Setting the theme**
+:::
+
+::: code-group-item yarn
+
+```bash
+yarn add -D vuepress-theme-mix@next
+```
+
+:::
+
+::: code-group-item pnpm
+
+```bash
+pnpm add -D vuepress-theme-mix@next
+```
+
+:::
+::::
+
+## Usage and Configuration
+
+After installation, you can use the `theme` configuration option in your configuration file, just like using other VuePress themes, to set the theme to use:
 
 ```ts
-// docs/.vuepress/config.ts
 import { defineUserConfig } from 'vuepress'
-import { mixTheme } from 'vuepress-theme-mix'
+import mixTheme from 'vuepress-theme-mix'
 
 export default defineUserConfig({
-  // ……
+  // ...
 
-  // 主题配置
   theme: mixTheme({
-    // ……
+    // configure the theme here
   }),
 
-  // ……
+  // ...
 })
 ```
+
+Next, you can configure the theme according to the documentation and start writing your content.
+
+🎉
