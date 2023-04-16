@@ -40,7 +40,7 @@ export type ResolvedNavbarItem = NavbarItem | NavGroup<ResolvedNavbarItem>
 export type SidebarItem = NavItem & Partial<NavLink>
 export type SidebarGroup = SidebarItem &
   NavGroup<SidebarItem | SidebarGroup | string> & {
-    collapsible?: boolean
+    collapsed?: boolean
   }
 export type SidebarConfigArray = (SidebarItem | SidebarGroup | string)[]
 export type SidebarConfigObject = Record<string, SidebarConfigArray>
@@ -48,5 +48,5 @@ export type SidebarConfig = SidebarConfigArray | SidebarConfigObject
 // resolved
 export type ResolvedSidebarItem = SidebarItem &
   Partial<NavGroup<ResolvedSidebarItem>> & {
-    collapsible?: boolean
+    collapsed?: boolean
   }

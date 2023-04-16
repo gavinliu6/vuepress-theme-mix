@@ -48,7 +48,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <ul v-if="sidebarItems.length">
+  <ul v-if="sidebarItems.length" class="text-muted">
     <SidebarItem
       v-for="item in sidebarItems"
       :key="`${item.text}${item.link}`"

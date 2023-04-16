@@ -223,7 +223,7 @@ interface NavLink extends NavItem {
 type SidebarItem = NavItem & Partial<NavLink>
 type SidebarGroup = SidebarItem &
   NavGroup<SidebarItem | SidebarGroup | string> & {
-    collapsible?: boolean
+    collapsed?: boolean
   }
 
 type SidebarConfigArray = (SidebarItem | SidebarGroup | string)[]
@@ -232,7 +232,7 @@ type SidebarConfigObject = Record<string, SidebarConfigArray>
 
 Setting it to `false` disables the sidebar navigation. Setting it to `'auto'` generates the sidebar based on page titles.
 
-When the configuration type of an item is SidebarGroup, you can also use `collapsible` to control whether it can be collapsed, and its default value is `true`.
+When the configuration type of an item is SidebarGroup, you can also use `collapsed` to control whether it is collapsed by default, and its default value is `false`.
 
 The array-style sidebar configuration will make the entire site use the same sidebar navigation. When your document structure is relatively simple and closely related, you may prefer this approach.
 
@@ -252,7 +252,6 @@ export default {
             text: 'github',
             link: 'https://github.com',
             children: [],
-            collapsible: false,
           },
           // String - Page file path
           '/foo/bar.md',

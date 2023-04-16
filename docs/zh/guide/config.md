@@ -252,7 +252,7 @@ type SidebarConfigObject = Record<string, SidebarConfigArray>
 
 设置为 `false` 时，禁用侧边导航栏；设置为 'auto'，侧边栏会根据页面标题自动生成。
 
-当某一项的配置类型是 `SidebarGroup` 时，你还可以使用 `collapsible` 来控制它是否可以折叠，它的默认值是 `true`。
+当某一项的配置类型是 `SidebarGroup` 时，你还可以使用 `collapsed` 来控制它的默认开闭状态，其默认值是 `false`，即默认情况下，所有 SidebarGroup 都是打开的。
 
 数组风格的侧边栏配置会使得全站共用一套侧边导航栏，当你的文档结构较为简单，且关联性较强时，你也许更喜欢这种方式。
 
@@ -272,7 +272,6 @@ export default {
             text: 'github',
             link: 'https://github.com',
             children: [],
-            collapsible: false,
           },
           // 字符串 - 页面文件路径
           '/foo/bar.md',

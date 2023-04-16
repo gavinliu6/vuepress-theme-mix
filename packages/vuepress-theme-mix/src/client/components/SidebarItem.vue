@@ -27,18 +27,14 @@ const router = useRouter()
 
 const isActive = computed(() => isActiveSidebarItem(item.value, route))
 
-const collapsible = computed(() => item.value.collapsible !== false)
-
-const isOpenDefault = computed(() =>
-  collapsible.value ? isActive.value : true
+const isOpenDefault = computed(
+  () => isActive.value || item.value.collapsed !== true
 )
 const [isOpen, toggleIsOpen] = useToggle(isOpenDefault.value)
 const onClick = (e: Event): void => {
-  if (collapsible.value) {
-    e.preventDefault()
-    // toggle open status on click
-    toggleIsOpen()
-  }
+  e.preventDefault()
+  // toggle open status on click
+  toggleIsOpen()
 }
 
 // reset open status after navigation
@@ -63,12 +59,12 @@ const itemCommonClasses = clsx(
     <AutoLink
       v-if="item.link"
       :item="item"
-      class="relative w-full"
+      class="hover:text-default relative w-full"
       :class="itemCommonClasses"
       :active-classes="
         clsx(
           isActive &&
-            'bg-contrast after:absolute after:top-[calc(50%-0.75rem);] after:-left-2 after:bg-theme after:rounded-md after:h-6 after:w-1 font-medium'
+            'bg-contrast after:absolute after:top-[calc(50%-0.75rem);] after:-left-2 after:bg-theme after:rounded-md after:h-6 after:w-1'
         )
       "
       :style="{ paddingLeft: depth === 0 ? '0.5rem' : depth * 2 + 'rem' }"
@@ -76,14 +72,14 @@ const itemCommonClasses = clsx(
     <p
       v-else
       tabindex="0"
-      class="group flex cursor-pointer items-center justify-between"
+      class="text-default group flex cursor-pointer items-center justify-between"
       :class="itemCommonClasses"
       :style="{ paddingLeft: depth === 0 ? '0.5rem' : depth * 2 + 'rem' }"
       @click="onClick"
       @keydown.enter="onClick"
     >
       {{ item.text }}
-      <span v-if="collapsible" class="text-muted ml-2 inline-block">
+      <span class="text-muted ml-2 inline-block">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           :class="
