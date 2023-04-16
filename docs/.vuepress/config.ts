@@ -46,6 +46,9 @@ export default defineUserConfig({
     },
   },
 
+  // Directory Config
+  dest: 'public',
+
   theme: mixTheme({
     editLink:
       'https://github.com/gavinliu6/vuepress-theme-mix/edit/main/docs/:path',
