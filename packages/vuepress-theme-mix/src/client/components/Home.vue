@@ -58,7 +58,7 @@ const footer = computed(() => frontmatter.value.footer)
       v-if="heroText"
       :class="
         clsx(
-          'mx-auto max-w-xl',
+          'mx-auto max-w-2xl',
           'tablet-reverse:text-3xl text-center text-6xl',
           'dark:to-theme dark:bg-gradient-to-r dark:from-white dark:bg-clip-text dark:text-transparent'
         )
@@ -68,7 +68,7 @@ const footer = computed(() => frontmatter.value.footer)
     </h1>
     <p
       v-if="tagline"
-      class="text-muted mx-auto mt-6 max-w-xl text-center text-xl"
+      class="text-muted mx-auto mt-6 max-w-2xl text-center text-xl"
     >
       {{ tagline }}
     </p>
