@@ -34,6 +34,7 @@ if (shouldShowPageToc.value) {
         :class="
           clsx(
             'flex p-6',
+            sidebarItems.length > 0 && 'tablet:pl-12',
             sidebarItems.length === 0 && 'mx-auto max-w-4xl',
             sidebarItems.length === 0 &&
               shouldShowPageToc &&
@@ -41,15 +42,7 @@ if (shouldShowPageToc.value) {
           )
         "
       >
-        <div
-          :class="
-            clsx(
-              'order-1',
-              'desktop:min-w-[640px] w-full pb-32 pr-0',
-              shouldShowPageToc && 'desktop:pr-6'
-            )
-          "
-        >
+        <div :class="clsx('order-1', 'desktop:min-w-[640px] w-full pb-32')">
           <div
             :class="
               clsx(
@@ -73,7 +66,7 @@ if (shouldShowPageToc.value) {
         </div>
         <div
           v-if="shouldShowPageToc"
-          class="desktop-reverse:hidden aside relative order-2 w-full max-w-[256px] flex-grow pl-6"
+          class="desktop-reverse:hidden aside relative order-2 w-full max-w-[256px] flex-grow pl-10"
         >
           <div
             class="fixed bottom-0 z-10 h-8 w-[232px] bg-[linear-gradient(transparent,var(--color-bg-default)_70%)]"
@@ -90,7 +83,9 @@ if (shouldShowPageToc.value) {
           >
             <div class="flex min-h-[calc(100vh-5.5rem)] flex-col pb-8">
               <div ref="container" class="flex flex-grow flex-col">
-                <div class="border-l-default relative border-l pl-3 text-xs">
+                <div
+                  class="relative border-l border-l-transparent pl-3 text-xs"
+                >
                   <div
                     ref="marker"
                     class="bg-theme absolute -left-px top-8 h-[1.125rem] w-px opacity-0 transition-[top]"

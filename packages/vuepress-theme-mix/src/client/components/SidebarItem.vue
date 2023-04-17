@@ -46,61 +46,62 @@ const unregisterRouterHook = router.afterEach(() => {
 onBeforeUnmount(() => {
   unregisterRouterHook()
 })
-
-const itemCommonClasses = clsx(
-  'rounded-md py-1.5 pr-2',
-  'hover:bg-contrast',
-  'transition-colors'
-)
 </script>
 
 <template>
   <li :class="clsx('h-8', isOpen && '!h-auto')">
-    <AutoLink
+    <p
       v-if="item.link"
-      :item="item"
-      class="hover:text-default relative w-full"
-      :class="itemCommonClasses"
-      :active-classes="
+      class="hover:text-default relative pr-2"
+      :class="
         clsx(
+          'rounded-md pr-2',
+          'hover:bg-contrast',
+          'transition-colors',
           isActive &&
-            'bg-contrast after:absolute after:top-[calc(50%-0.75rem);] after:-left-2 after:bg-theme after:rounded-md after:h-6 after:w-1'
+            'bg-contrast after:bg-theme after:absolute after:-left-2 after:top-[calc(50%-0.75rem);] after:h-6 after:w-1 after:rounded-md'
         )
       "
-      :style="{ paddingLeft: depth === 0 ? '0.5rem' : depth * 2 + 'rem' }"
-    />
+      :style="{
+        paddingLeft: depth === 0 ? '0.5rem' : depth * 1.55 + 0.5 + 'rem',
+      }"
+    >
+      <AutoLink :class="clsx('w-full py-1.5')" :item="item" />
+    </p>
+
     <p
       v-else
       tabindex="0"
-      class="text-default group flex cursor-pointer items-center justify-between"
-      :class="itemCommonClasses"
-      :style="{ paddingLeft: depth === 0 ? '0.5rem' : depth * 2 + 'rem' }"
+      class="text-default group flex cursor-pointer items-center pr-2"
+      :class="
+        clsx('rounded-md py-1.5 pr-2', 'hover:bg-contrast', 'transition-colors')
+      "
+      :style="{
+        paddingLeft: depth === 0 ? '0.5rem' : depth * 1.55 + 0.5 + 'rem',
+      }"
       @click="onClick"
       @keydown.enter="onClick"
     >
-      {{ item.text }}
-      <span class="text-muted ml-2 inline-block">
+      <span class="text-muted mr-1.5 inline-block">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           :class="
-            clsx(
-              'scale-y-100 transition-transform duration-300',
-              isOpen && '!-scale-y-100'
-            )
+            clsx('transition-transform duration-300', isOpen && 'rotate-90')
           "
           width="18"
           height="18"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          stroke-width="2"
           stroke="currentColor"
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M6 9l6 6l6 -6"></path>
+          <path d="M9 6l6 6l-6 6"></path>
         </svg>
       </span>
+      {{ item.text }}
     </p>
 
     <ul

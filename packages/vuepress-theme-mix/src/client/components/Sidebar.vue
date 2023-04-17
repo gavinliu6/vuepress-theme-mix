@@ -11,6 +11,7 @@ import { clsx } from 'clsx'
         'fixed bottom-0 left-[max(0px,calc(50%-45rem))] top-16',
         'tablet-reverse:top-0 tablet-reverse:opacity-0 tablet-reverse:-translate-x-full',
         'bg-default w-80 p-6',
+        'border-r-default border-r',
         'overflow-y-auto overflow-x-hidden',
         'transition-[opacity,transform] duration-300',
         'z-30'
