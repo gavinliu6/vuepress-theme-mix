@@ -1,3 +1,17 @@
+# [2.0.0-alpha.3](https://github.com/gavinliu6/vuepress-theme-mix/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2023-04-17)
+
+
+### Features
+
+* the open/collapsed state of SidebarGroup by default is controlled ([fca93cf](https://github.com/gavinliu6/vuepress-theme-mix/commit/fca93cfafaa985da3f12325328116ac6e63b6e2e))
+
+
+### BREAKING CHANGES
+
+* remove configuration item `collapsible` in SidebarGroup
+
+
+
 # [2.0.0-alpha.2](https://github.com/gavinliu6/vuepress-theme-mix/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2023-04-16)
 
 
