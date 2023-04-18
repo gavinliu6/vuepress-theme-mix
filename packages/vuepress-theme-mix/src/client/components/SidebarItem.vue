@@ -52,9 +52,10 @@ onBeforeUnmount(() => {
   <li :class="clsx('h-8', isOpen && '!h-auto')">
     <p
       v-if="item.link"
-      class="hover:text-default relative pr-2"
       :class="
         clsx(
+          'flex items-center',
+          'hover:text-default relative pr-2',
           'rounded-md pr-2',
           'hover:bg-contrast',
           'transition-colors',
@@ -66,15 +67,22 @@ onBeforeUnmount(() => {
         paddingLeft: depth === 0 ? '0.5rem' : depth * 1.55 + 0.5 + 'rem',
       }"
     >
-      <AutoLink :class="clsx('w-full py-1.5')" :item="item" />
+      <AutoLink
+        :class="clsx('w-full overflow-hidden text-ellipsis py-1.5')"
+        :item="item"
+      />
     </p>
 
     <p
       v-else
       tabindex="0"
-      class="text-default group flex cursor-pointer items-center pr-2"
       :class="
-        clsx('rounded-md py-1.5 pr-2', 'hover:bg-contrast', 'transition-colors')
+        clsx(
+          'text-default group flex cursor-pointer items-center pr-2',
+          'rounded-md py-1.5 pr-2',
+          'hover:bg-contrast',
+          'transition-colors'
+        )
       "
       :style="{
         paddingLeft: depth === 0 ? '0.5rem' : depth * 1.55 + 0.5 + 'rem',
@@ -101,7 +109,9 @@ onBeforeUnmount(() => {
           <path d="M9 6l6 6l-6 6"></path>
         </svg>
       </span>
-      {{ item.text }}
+      <span class="inline-block overflow-hidden text-ellipsis">{{
+        item.text
+      }}</span>
     </p>
 
     <ul
