@@ -31,8 +31,7 @@ The descriptive slogan below the main title of the homepage, set to `null` to di
 
 - Type:
 
-  ```
-  tsCopy code
+  ```ts
   Array<{
     text: string
     link: string
@@ -60,8 +59,7 @@ actions:
 
 - Type:
 
-  ```
-  tsCopy code
+  ```ts
   Array<{
     title: string
     details: string
