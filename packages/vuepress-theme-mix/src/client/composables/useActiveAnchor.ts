@@ -94,10 +94,10 @@ export function useActiveAnchor(
     const activeLink = prevActiveLink
     if (activeLink) {
       activeLink.classList.add('text-default')
-      marker.value.style.top = activeLink.offsetTop + 32 + 'px'
+      marker.value.style.top = activeLink.offsetTop + 40 + 'px'
       marker.value.style.opacity = '1'
     } else {
-      marker.value.style.top = '32px'
+      marker.value.style.top = '40px'
       marker.value.style.opacity = '0'
     }
   }

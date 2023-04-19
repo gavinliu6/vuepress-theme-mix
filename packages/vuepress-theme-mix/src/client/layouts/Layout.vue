@@ -66,52 +66,47 @@ const onBeforeLeave = scrollPromise.pending
 </script>
 
 <template>
-  <div>
-    <div class="max-w-8xl mx-auto">
-      <Navbar
-        v-if="themeLocale.navbar !== false"
-        @toggle-screen="toggleScreen"
-      />
-      <LocalNav
-        v-if="sidebarItems.length"
-        :class="clsx('tablet:hidden')"
-        @toggle-sidebar="toggleSidebar"
-      />
-      <NavbarScreen v-if="isScreenOpen" />
+  <div class="max-w-8xl mx-auto">
+    <Navbar v-if="themeLocale.navbar !== false" @toggle-screen="toggleScreen" />
+    <LocalNav
+      v-if="sidebarItems.length"
+      :class="clsx('tablet:hidden')"
+      @toggle-sidebar="toggleSidebar"
+    />
+    <NavbarScreen v-if="isScreenOpen" />
 
-      <div
-        v-if="sidebarItems.length && isSidebarOpen"
-        :class="
-          clsx(
-            'bg-overlay tablet:hidden',
-            'fixed bottom-0 left-0 right-0 top-0',
-            'z-30'
-          )
-        "
-        @click="toggleSidebar(false)"
-      />
-      <Sidebar
-        v-if="!frontmatter.home && sidebarItems.length > 0"
-        :class="
-          clsx(
-            sidebarItems.length &&
-              isSidebarOpen &&
-              '!translate-x-0 !opacity-100 !transition-[opacity,transform] !duration-300'
-          )
-        "
-      />
+    <div
+      v-if="sidebarItems.length && isSidebarOpen"
+      :class="
+        clsx(
+          'bg-overlay tablet:hidden',
+          'fixed bottom-0 left-0 right-0 top-0',
+          'z-30'
+        )
+      "
+      @click="toggleSidebar(false)"
+    />
+    <Sidebar
+      v-if="!frontmatter.home && sidebarItems.length > 0"
+      :class="
+        clsx(
+          sidebarItems.length &&
+            isSidebarOpen &&
+            '!translate-x-0 !opacity-100 !transition-[opacity,transform] !duration-300'
+        )
+      "
+    />
 
-      <Home v-if="frontmatter.home" />
+    <Home v-if="frontmatter.home" />
 
-      <Transition
-        v-else
-        name="fade-slide-y"
-        mode="out-in"
-        @before-enter="onBeforeEnter"
-        @before-leave="onBeforeLeave"
-      >
-        <Page :key="page.path" />
-      </Transition>
-    </div>
+    <Transition
+      v-else
+      name="fade-slide-y"
+      mode="out-in"
+      @before-enter="onBeforeEnter"
+      @before-leave="onBeforeLeave"
+    >
+      <Page :key="page.path" />
+    </Transition>
   </div>
 </template>

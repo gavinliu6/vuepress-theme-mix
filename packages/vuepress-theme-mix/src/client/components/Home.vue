@@ -53,7 +53,11 @@ const footer = computed(() => frontmatter.value.footer)
 </script>
 
 <template>
-  <div class="tablet-reverse:pt-24 px-6 pt-40">
+  <div
+    :class="
+      clsx('tablet-reverse:pt-24 px-6', heroText === null ? 'pt-16' : 'pt-40')
+    "
+  >
     <h1
       v-if="heroText"
       :class="
