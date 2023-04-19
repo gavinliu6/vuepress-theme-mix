@@ -1,3 +1,12 @@
+# [2.0.0-alpha.4](https://github.com/gavinliu6/vuepress-theme-mix/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2023-04-19)
+
+
+### Features
+
+* add 404 page ([986b9db](https://github.com/gavinliu6/vuepress-theme-mix/commit/986b9dbe37d64882685d99257960f2d8dd4aa125))
+
+
+
 # [2.0.0-alpha.3](https://github.com/gavinliu6/vuepress-theme-mix/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2023-04-17)
 
 
