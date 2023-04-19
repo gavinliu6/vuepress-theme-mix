@@ -42,7 +42,7 @@ module.exports = {
         'muted-in-code-block': 'var(--color-text-muted-in-code-block)',
       },
       backgroundColor: {
-        default: 'var(--color-bg-default)',
+        default: 'rgb(var(--color-bg-default) / <alpha-value>)',
         contrast: 'var(--color-bg-contrast)',
         divider: 'var(--color-bg-divider)',
         overlay: 'var(--color-bg-overlay)',

@@ -21,10 +21,14 @@ export const DEFAULT_LOCALE_OPTIONS: MixThemeLocaleOptions = {
   lastUpdatedText: 'Last Updated',
   contributors: true,
   contributorsText: 'Contributors',
+  tocTitle: 'On this page',
+
+  // 404 page messags
+  notFound: 'This page could not be found.',
+  backToHome: 'Take me home',
 
   // a11y
   toggleSidebarTitle: 'toggle sidebar',
-  tocTitle: 'Table of Contents',
 }
 
 export const DEFAULT_LOCALE_DATA: MixThemeLocaleData = {

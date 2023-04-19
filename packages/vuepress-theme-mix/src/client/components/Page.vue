@@ -26,15 +26,14 @@ if (shouldShowPageToc.value) {
 </script>
 
 <template>
-  <main>
+  <main class="max-w-8xl mx-auto">
     <div
       :class="clsx('tablet:pt-16', sidebarItems.length > 0 && 'tablet:pl-80')"
     >
       <div
         :class="
           clsx(
-            'flex p-6',
-            sidebarItems.length > 0 && 'tablet:pl-12',
+            'flex px-6 py-10',
             sidebarItems.length === 0 && 'mx-auto max-w-4xl',
             sidebarItems.length === 0 &&
               shouldShowPageToc &&
@@ -42,7 +41,7 @@ if (shouldShowPageToc.value) {
           )
         "
       >
-        <div :class="clsx('order-1', 'desktop:min-w-[640px] w-full pb-32')">
+        <div :class="clsx('order-1', 'w-full pb-32')">
           <div
             :class="
               clsx(
@@ -69,30 +68,31 @@ if (shouldShowPageToc.value) {
           class="desktop-reverse:hidden aside relative order-2 w-full max-w-[256px] flex-grow pl-10"
         >
           <div
-            class="fixed bottom-0 z-10 h-8 w-[232px] bg-[linear-gradient(transparent,var(--color-bg-default)_70%)]"
+            class="fixed bottom-0 z-10 h-8 w-[216px] bg-[linear-gradient(transparent,var(--color-bg-default)_70%)]"
           />
           <div
             :class="
               clsx(
-                'h-screen w-[232px]',
+                'h-screen w-[216px]',
                 'fixed top-0',
                 'overflow-y-auto overflow-x-hidden',
-                'pt-[5.5rem]'
+                'pt-[6.5rem]'
               )
             "
           >
-            <div class="flex min-h-[calc(100vh-5.5rem)] flex-col pb-8">
+            <div class="flex min-h-[calc(100vh-6.5rem)] flex-col pb-8">
               <div ref="container" class="flex flex-grow flex-col">
                 <div
                   class="relative border-l border-l-transparent pl-3 text-xs"
                 >
                   <div
                     ref="marker"
-                    class="bg-theme absolute -left-px top-8 h-[1.125rem] w-px opacity-0 transition-[top]"
+                    class="bg-theme absolute -left-px top-8 h-[1.125rem] w-[3px] rounded opacity-0 transition-[top]"
                   />
-                  <span class="font-medium leading-7">{{
-                    themeLocale.tocTitle
-                  }}</span>
+                  <span
+                    class="border-b-default mb-2 inline-block w-full border-b font-medium leading-7"
+                    >{{ themeLocale.tocTitle }}</span
+                  >
                   <nav>
                     <PageToc :headers="pageData.headers" />
                   </nav>

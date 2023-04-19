@@ -12,7 +12,7 @@ const navbarBrand = ref<HTMLElement | null>(null)
 
 <template>
   <header
-    class="tablet-reverse:h-14 max-w-8xl bg-default tablet-reverse:relative fixed top-0 z-20 h-16 w-full px-6"
+    class="tablet-reverse:h-14 max-w-8xl bg-default/95 tablet-reverse:relative fixed top-0 z-20 h-16 w-full px-6 backdrop-blur"
   >
     <div
       class="border-b-default flex h-full items-center justify-between border-b"

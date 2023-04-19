@@ -452,6 +452,20 @@ export default {
 
 指定选择语言菜单的下拉列表中显示的语言名称，请注意该配置项仅在主题配置项 [locales](#locales) 内部有效。
 
+### notFound
+
+- 类型：`string`
+- 默认值：`'This page could not be found.'`
+
+404 页面的提示信息。
+
+### backToHome
+
+- 类型：`string`
+- 默认值：`Back to home`
+
+404 页面中返回首页链接的文字。
+
 ## 插件配置
 
 Mix 主题默认使用了多个插件，通过修改下面的配置你可以有选择地关闭它们，这些配置项都包裹在 `themePlugins` 中。

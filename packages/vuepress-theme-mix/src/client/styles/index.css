@@ -27,7 +27,7 @@
     --color-text-danger: #ff3b10;
     --color-text-muted-in-code-block: rgba(235, 235, 245, 0.38);
 
-    --color-bg-default: #fff;
+    --color-bg-default: 255 255 255;
     --color-bg-contrast: #f6f6f7;
     --color-bg-divider: rgba(15, 23, 42, 0.1);
     --color-bg-overlay: rgba(0, 0, 0, 0.6);
@@ -53,7 +53,7 @@
     --color-text-danger: #ffa692;
     --color-text-muted-in-code-block: rgba(235, 235, 245, 0.38);
 
-    --color-bg-default: #161618;
+    --color-bg-default: 22 22 24;
     --color-bg-contrast: #242424;
     --color-bg-divider: rgba(82, 82, 89, 0.32);
     --color-bg-overlay: rgba(0, 0, 0, 0.6);

@@ -432,6 +432,20 @@ Specifies the `aria-label` attribute of the language selection menu in the navig
 
 Specifies the language name displayed in the drop-down list of the language selection menu. Note that this option is only valid within the [locales](#locales) configuration option of the theme.
 
+### notFound
+
+- Type: `string`
+- Default: `'This page could not be found.'`
+
+Specify the messages of the 404 page.
+
+### backToHome
+
+- Type: `string`
+- Default: `Back to home`
+
+Specify the text of the back to home link in the 404 page.
+
 ## Plugin Configuration
 
 The Mix theme uses multiple plugins by default. You can selectively disable them by modifying the following configuration options, all of which are wrapped in `themePlugins`.

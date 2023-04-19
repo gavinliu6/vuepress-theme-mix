@@ -239,6 +239,20 @@ export interface MixThemeLocaleData extends LocaleData {
    * Default title of DANGER custom block
    */
   danger?: string
+
+  /**
+   * 404 page config
+   *
+   * Not Found messages for 404 page
+   */
+  notFound?: string
+
+  /**
+   * 404 page config
+   *
+   * Text of back-to-home link in 404 page
+   */
+  backToHome?: string
 }
 
 export type MixThemeData = ThemeData<MixThemeLocaleData>
