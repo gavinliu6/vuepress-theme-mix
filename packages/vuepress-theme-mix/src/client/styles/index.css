@@ -125,8 +125,8 @@
   --docsearch-searchbox-background: var(--color-bg-contrast);
   --docsearch-text-color: var(--color-text-muted);
   --docsearch-searchbox-focus-background: var(--color-bg-contrast);
-  --docsearch-modal-background: var(--color-bg-default);
-  --docsearch-footer-background: var(--color-bg-default);
+  --docsearch-modal-background: rgb(var(--color-bg-default));
+  --docsearch-footer-background: rgb(var(--color-bg-default));
   --docsearch-modal-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --docsearch-footer-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --docsearch-hit-background: var(--color-bg-contrast);
