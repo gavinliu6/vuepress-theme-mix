@@ -19,11 +19,11 @@ const isDarkMode = useDark({
 })
 
 onMounted(() => {
-  document.title = `404 | ${siteLocale.value.title ?? 'VuePress Theme Mix'}`
-  isDarkMode.value && document.documentElement.classList.toggle('dark', true)
+  if (typeof window === 'object') {
+    document.title = `404 | ${siteLocale.value.title ?? 'VuePress Theme Mix'}`
+    isDarkMode.value && document.documentElement.classList.toggle('dark', true)
+  }
 })
-
-isDarkMode && document.documentElement.classList.toggle('dark', true)
 </script>
 
 <template>
