@@ -6,10 +6,12 @@ import { h } from 'vue'
 import { CodeGroup, CodeGroupItem } from './components/global/index.js'
 import { setupSidebarItems, useScrollPromise } from './composables/index.js'
 import Layout from './layouts/Layout.vue'
+import NotFound from './layouts/NotFound.vue'
 
 export default defineClientConfig({
   layouts: {
     Layout,
+    NotFound,
   },
 
   enhance({ app, router }) {
