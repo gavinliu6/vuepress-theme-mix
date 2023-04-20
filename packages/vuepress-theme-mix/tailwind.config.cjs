@@ -30,7 +30,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        theme: 'var(--color-theme)',
+        theme: 'rgb(var(--color-theme) / <alpha-value>)',
       },
       textColor: {
         default: 'var(--color-text-default)',

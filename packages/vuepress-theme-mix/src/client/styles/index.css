@@ -17,7 +17,7 @@
   }
 
   :root {
-    --color-theme: #ff5758;
+    --color-theme: 255 87 88;
 
     --color-text-default: rgb(17, 24, 39);
     --color-text-muted: rgba(17, 24, 39, 0.75);
@@ -31,7 +31,7 @@
     --color-bg-contrast: #f6f6f7;
     --color-bg-divider: rgba(15, 23, 42, 0.1);
     --color-bg-overlay: rgba(0, 0, 0, 0.6);
-    --color-bg-tip: #f6f6f7;
+    --color-bg-tip: #faf9f9;
     --color-bg-warning: #fffeeb;
     --color-bg-danger: #fff9f8;
     --color-bg-code-block: #292b30;
@@ -43,7 +43,7 @@
   }
 
   .dark {
-    --color-theme: #ff5758;
+    --color-theme: 255 87 88;
 
     --color-text-default: rgb(209, 213, 219);
     --color-text-muted: rgba(209, 213, 219, 0.6);
@@ -92,7 +92,15 @@
    * Inline code
    */
   :not(pre) > code {
-    @apply bg-contrast !text-muted inline-flex rounded px-1 py-0.5 align-middle !font-normal;
+    @apply bg-contrast inline-flex rounded px-1 py-0.5 align-middle !font-normal;
+  }
+
+  :not(pre):not(a) > code {
+    @apply !text-muted;
+  }
+
+  a > code {
+    @apply !text-theme/80 hover:!text-theme;
   }
 }
 
@@ -115,12 +123,12 @@
  * plugins
  */
 #nprogress {
-  --nprogress-color: var(--color-theme);
+  --nprogress-color: rgb(var(--color-theme));
 }
 
 .DocSearch {
-  --docsearch-primary-color: var(--color-theme);
-  --docsearch-highlight-color: var(--color-theme);
+  --docsearch-primary-color: rgb(var(--color-theme));
+  --docsearch-highlight-color: rgb(var(--color-theme));
   --docsearch-searchbox-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --docsearch-searchbox-background: var(--color-bg-contrast);
   --docsearch-text-color: var(--color-text-muted);

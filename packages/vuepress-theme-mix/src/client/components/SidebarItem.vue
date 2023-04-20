@@ -68,7 +68,9 @@ onBeforeUnmount(() => {
       }"
     >
       <AutoLink
-        :class="clsx('w-full overflow-hidden text-ellipsis py-1.5')"
+        :class="
+          clsx('w-full overflow-hidden text-ellipsis whitespace-nowrap py-1.5')
+        "
         :item="item"
       />
     </p>
@@ -78,7 +80,7 @@ onBeforeUnmount(() => {
       tabindex="0"
       :class="
         clsx(
-          'text-default group flex cursor-pointer items-center pr-2',
+          'text-default group flex cursor-pointer items-center justify-between pr-2',
           'rounded-md py-1.5 pr-2',
           'hover:bg-contrast',
           'transition-colors'
@@ -90,7 +92,11 @@ onBeforeUnmount(() => {
       @click="onClick"
       @keydown.enter="onClick"
     >
-      <span class="text-muted mr-1.5 inline-block">
+      <span
+        class="mr-1.5 inline-block overflow-hidden text-ellipsis whitespace-nowrap"
+        >{{ item.text }}</span
+      >
+      <span class="text-muted inline-block">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           :class="
@@ -109,9 +115,6 @@ onBeforeUnmount(() => {
           <path d="M9 6l6 6l-6 6"></path>
         </svg>
       </span>
-      <span class="inline-block overflow-hidden text-ellipsis">{{
-        item.text
-      }}</span>
     </p>
 
     <ul
