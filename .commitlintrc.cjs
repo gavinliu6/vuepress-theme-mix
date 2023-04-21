@@ -10,7 +10,7 @@ const corePackages = getSubDirectories(path.resolve(__dirname, 'packages'))
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    'scope-enum': [2, 'always', [...corePackages, 'docs']],
+    'scope-enum': [2, 'always', [...corePackages]],
     'footer-max-line-length': [0],
   },
 }

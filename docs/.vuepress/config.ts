@@ -4,6 +4,7 @@ import { viteBundler } from '@vuepress/bundler-vite'
 import { webpackBundler } from '@vuepress/bundler-webpack'
 import { defineUserConfig } from '@vuepress/cli'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import mixTheme from 'vuepress-theme-mix'
 
 import {
@@ -138,6 +139,11 @@ export default defineUserConfig({
           },
         },
       },
+    }),
+
+    googleAnalyticsPlugin({
+      // we have multiple deployments, which would use different id
+      id: process.env.GA_ID ?? '',
     }),
   ],
 })

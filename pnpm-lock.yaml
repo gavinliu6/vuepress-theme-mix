@@ -103,6 +103,9 @@ importers:
       '@vuepress/plugin-docsearch':
         specifier: 2.0.0-beta.61
         version: 2.0.0-beta.61(@algolia/client-search@4.16.0)
+      '@vuepress/plugin-google-analytics':
+        specifier: 2.0.0-beta.61
+        version: 2.0.0-beta.61
       '@vuepress/utils':
         specifier: 2.0.0-beta.61
         version: 2.0.0-beta.61
@@ -1574,6 +1577,16 @@ packages:
       '@vuepress/core': 2.0.0-beta.61
       '@vuepress/utils': 2.0.0-beta.61
       execa: 7.1.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@vuepress/plugin-google-analytics@2.0.0-beta.61:
+    resolution: {integrity: sha512-UwjDVtNpqkfEz7S5TPl703Jwhg0V1Xfvz8y5c4y5nQLNRky0/3bOKx8u7e5J3AATtwz0XwI2cmhXtuHFs6IiDA==}
+    dependencies:
+      '@vuepress/client': 2.0.0-beta.61
+      '@vuepress/core': 2.0.0-beta.61
+      '@vuepress/utils': 2.0.0-beta.61
     transitivePeerDependencies:
       - supports-color
     dev: false
