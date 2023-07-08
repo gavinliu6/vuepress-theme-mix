@@ -26,18 +26,15 @@ if (shouldShowPageToc.value) {
 </script>
 
 <template>
-  <main class="max-w-8xl mx-auto">
+  <main>
     <div
       :class="clsx('tablet:pt-16', sidebarItems.length > 0 && 'tablet:pl-80')"
     >
       <div
         :class="
           clsx(
-            'flex px-6 py-10',
-            sidebarItems.length === 0 && 'mx-auto max-w-4xl',
-            sidebarItems.length === 0 &&
-              shouldShowPageToc &&
-              'mx-auto max-w-6xl'
+            'mx-auto flex max-w-4xl px-6 py-10',
+            shouldShowPageToc && 'mx-auto max-w-6xl'
           )
         "
       >
