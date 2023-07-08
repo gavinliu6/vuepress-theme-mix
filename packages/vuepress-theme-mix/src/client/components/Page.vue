@@ -65,7 +65,7 @@ if (shouldShowPageToc.value) {
           class="desktop-reverse:hidden aside relative order-2 w-full max-w-[256px] flex-grow pl-10"
         >
           <div
-            class="fixed bottom-0 z-10 h-8 w-[216px] bg-[linear-gradient(transparent,var(--color-bg-default)_70%)]"
+            class="fixed bottom-0 z-10 h-8 w-[216px] bg-[linear-gradient(transparent,rgb(var(--color-bg-default))_70%)]"
           />
           <div
             :class="
