@@ -1,3 +1,12 @@
+# [2.0.0-alpha.6](https://github.com/gavinliu6/vuepress-theme-mix/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2023-07-08)
+
+
+### Bug Fixes
+
+* toc curtain ([cad6222](https://github.com/gavinliu6/vuepress-theme-mix/commit/cad6222291002648e2a366b83c20a3ca362bb5b9))
+
+
+
 # [2.0.0-alpha.5](https://github.com/gavinliu6/vuepress-theme-mix/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2023-04-20)
 
 
