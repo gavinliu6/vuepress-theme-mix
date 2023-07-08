@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import AutoLink from '@theme/AutoLink.vue'
 import NavbarDropdown from '@theme/NavbarDropdown.vue'
-import { useRouteLocale, useSiteLocaleData } from '@vuepress/client'
+import {
+  useRouteLocale,
+  useSiteData,
+  useSiteLocaleData,
+} from '@vuepress/client'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -10,12 +14,14 @@ import type {
   NavLink,
   ResolvedNavbarItem,
 } from '../../shared/index.js'
-import { useThemeLocaleData } from '../composables/index.js'
+import { useThemeData, useThemeLocaleData } from '../composables/index.js'
 
 const navbarSelectLanguage = computed<ResolvedNavbarItem | null>(() => {
   const router = useRouter()
   const routeLocale = useRouteLocale()
+  const site = useSiteData()
   const siteLocale = useSiteLocaleData()
+  const theme = useThemeData()
   const themeLocale = useThemeLocaleData()
 
   const localePaths = Object.keys(siteLocale.value.locales)
@@ -31,10 +37,8 @@ const navbarSelectLanguage = computed<ResolvedNavbarItem | null>(() => {
     ariaLabel: themeLocale.value.selectLanguageAriaLabel ?? 'unknown language',
     children: localePaths.map(targetLocalePath => {
       // target locale config of this language link
-      const targetSiteLocale =
-        siteLocale.value.locales?.[targetLocalePath] ?? {}
-      const targetThemeLocale =
-        themeLocale.value.locales?.[targetLocalePath] ?? {}
+      const targetSiteLocale = site.value.locales?.[targetLocalePath] ?? {}
+      const targetThemeLocale = theme.value.locales?.[targetLocalePath] ?? {}
       const targetLang = `${targetSiteLocale.lang}`
 
       const text = targetThemeLocale.selectLanguageName ?? targetLang
